@@ -57,3 +57,55 @@ Lorsque vous n'avez plus de slots dispo, vous devez libérer des slots en valida
     <li>boss</li>
 </ul>
 </details>
+
+---
+
+## Technique 
+
+### Moteur de jeu
+
+Le jeu a été entièrement concut avec godot 4.4.1
+
+### Pour lancer le jeu en web
+
+#### Prérequis
+
+Avoir de quoi lancer un container docker, ou lancer directement un apache ou autre serveur web en local, le tout est de le faire pointer sur le repertoire ou a été desarchivé le zip web.
+
+#### Commande d'exemple Docker 
+
+```bash
+docker run -dit --name my-apache-app -p 8080:80 -v ~/web:/usr/local/apache2/htdocs/ httpd:2.4.63
+```
+
+Ce qui rendra le jeu disponible sur le port 8080 en local, donc sur l'url `http://localhost:8080`
+
+### Langues supportées
+
+Le jeu supporte les langues suivantes :
+
++ anglais
++ français
++ espagnol
+
+## Bugs connus (et génant... par ordre croissant de gêne)
+
++ Le bouton retour lors de la collection de cartes du menu principal est en double et celui du haut ne fonctione pas
++ certaines interactions avec les cartes amplis posent problèmes (persistent sur la carte par exemple)
++ La fenêtre reste redimensionnable pour pouvoir voir le niveau car il y a un gros souci sur l'UI pour le moment
++ La case d'arrivée du labyrinthe est parfois bloqué, il faut un peu jouer avec les cartes/parcours pour y arriver
+
+## Reste à faire
+
+Tellement !!!
+
++ Une liste de cartes énorme à implémenter
++ Un système de caractéristiques par personnage
++ Un mécanisme de badges/bonus à équiper
++ Refaire les assets pour avoir un truc moins générique (musique, sprites)
++ Plein de boss !!! J'adore les boss, et j'ai un cahier rempli d'idées de boss (et j'ai leur nom :D et aussi leur "pattern")
++ Ajouter du game feeling, du move, du speech, du paf graphique et sonore
++ Faire connaître le jeu
++ Trouver le meilleur moyen de le distribuer
++ Construire une communauté autour du jeu
++ Dormir... enfin :D
