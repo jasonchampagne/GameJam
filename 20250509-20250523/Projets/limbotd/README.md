@@ -14,3 +14,18 @@ _Abandonnez tout ce que vous connaissez, et plongez-vous dans ce que les mortels
 _Après la fin se trouve..._
 
 _...votre fin._
+
+## Comment jouer
+
+### GNU/Linux
+
+> ![NOTE]
+> Préférer cette plateforme si des bugs sont à déplorer (bien que Wayland soit censé pouvoir le supporter)
+
++ Lancer l'exécutable normalement (le jeu tourne sous X11)
+
+### HTML
+
+### Contrôles
+
+## Compilation/édition
