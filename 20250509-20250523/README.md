@@ -15,7 +15,7 @@
 |:--|:--|:--:|:--:|:--:|
 |**Au final**|langop|[accéder](https://github.com/jasonchampagne/GameJam/tree/main/20250509-20250523/Projets/au-final)|[télécharger](https://mega.nz/file/lcV3hYrD#Red523mDxiEKVTvhoPgeRWgwUAqWY3HP-v3DedUTx4Q)|[consulter](https://github.com/jasonchampagne/GameJam/tree/main/20250509-20250523/Projets/au-final/src)|
 |**Director's Cut**|slazaa, thibault_pnd, oblerion|[accéder](https://github.com/jasonchampagne/GameJam/tree/main/20250509-20250523/Projets/directors-cut)|[télécharger](https://mega.nz/file/8ZVTnJaZ#-55qebuQ1VUdEhrjUWgFbReybPHhM5mhGx50WPx8wqM)|[consulter](https://github.com/jasonchampagne/GameJam/tree/main/20250509-20250523/Projets/directors-cut/src)|
-|**ETZ**|tamigore, eestela, zordhan|[accéder](https://github.com/jasonchampagne/GameJam/tree/main/20250509-20250523/Projets/etz)|[télécharger](#)|-|
+|**ETZ**|tamigore, eestela, zordhan|[accéder](https://github.com/jasonchampagne/GameJam/tree/main/20250509-20250523/Projets/etz)|[télécharger](https://mega.nz/file/5JszRJZY#BAVStqgtMeswyRVbgS65ZMN5zxFgKd_EpafglM61SAY)|-|
 |**L'héritier des trésors du roi**|Mr_Le_Mal|[accéder](https://github.com/jasonchampagne/GameJam/tree/main/20250509-20250523/Projets/heritier-tresors-roi)|[télécharger](#)|[consulter](#)|
 |**LimboTD**|inkya|[accéder](https://github.com/jasonchampagne/GameJam/tree/main/20250509-20250523/Projets/limbotd)|[télécharger](#)|[consulter](#)|
 |**Neon Starfire**|.lyrz|[accéder](https://github.com/jasonchampagne/GameJam/tree/main/20250509-20250523/Projets/neon-starfire)|[télécharger](#)|[consulter](#)|
