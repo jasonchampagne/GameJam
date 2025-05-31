@@ -1,0 +1,146 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Bienvenue dans les limbes."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Tu l'as sûrement oublié, mais toute forme de vie a été éradiquée de la surface terrestre."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Tu sais, ils auraient dû lire la notice avant de tout faire exploser. Maintenant vous êtes tous morts."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Toutes les âmes humaines ont été envoyées dans les limbes pour expier ce que ces guignols ont fait.\nN'est-ce pas merveilleux ? Une éternité à ne rien ressentir, sans rien accomplir, t'attends."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hein ?"
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Tu ne veux pas rester coincé ici ?\nUn peu de respect ! Tu n'es pas \"coincé\" ici."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Vous avez \"l'honneur\" de demeurer dans mon royaume après la fin de votre vie."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Mais ne t'inquiète pas. Ton existence ne fait que commencer.\nAprès tout, le temps n'est plus vraiment une variable ici."
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 1
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Comment ?\nTu insistes pour sortir d'ici ?"
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Alors j'ai quelque chose pour toi."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Vois-tu, les âmes humaines ne se satisfont pas de leur présence ici et veulent s'enfuir."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "J'ai la flemme de les arrêter; c'est là qu'intervient ma proposition."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Empêche les âmes humaines de s'évader des limbes et je t'accorderais un statut spécial."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Disons, une réincarnation non déclarée. Ou tu préfères peut-être devenir un esprit ?"
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 0.5
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Alors c'est parti."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Tu dois empêcher ces âmes d'atteindre la sortie."
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": false,
+			"wait_seconds": 0.5
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Clique d'abord sur un emplacement et achète une tour."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1747641029.json",
+		"name": "tuto1"
+	}
+}

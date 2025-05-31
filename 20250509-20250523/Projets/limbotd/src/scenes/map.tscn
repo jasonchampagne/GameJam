@@ -1,0 +1,375 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://fonts/jupiteroid/Jupiteroid-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://code/ui/StockMarket.gd" type="Script" id=3]
+[ext_resource path="res://code/ui/ui.gd" type="Script" id=5]
+[ext_resource path="res://code/ui/Shop.gd" type="Script" id=6]
+[ext_resource path="res://code/map/map.gd" type="Script" id=7]
+[ext_resource path="res://code/ui/TowerMenu.gd" type="Script" id=8]
+[ext_resource path="res://themes/game_buttons.tres" type="Theme" id=9]
+[ext_resource path="res://code/map/WaveManager.gd" type="Script" id=10]
+[ext_resource path="res://code/ui/GameOver.gd" type="Script" id=11]
+[ext_resource path="res://code/ui/Pause.gd" type="Script" id=14]
+[ext_resource path="res://themes/borderless.tres" type="Theme" id=15]
+
+[sub_resource type="DynamicFont" id=4]
+size = 45
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 45
+font_data = ExtResource( 2 )
+
+[sub_resource type="InputEventAction" id=6]
+action = "upgrade"
+pressed = true
+
+[sub_resource type="ShortCut" id=7]
+shortcut = SubResource( 6 )
+
+[sub_resource type="InputEventAction" id=8]
+action = "sell"
+pressed = true
+
+[sub_resource type="ShortCut" id=9]
+shortcut = SubResource( 8 )
+
+[sub_resource type="Gradient" id=10]
+colors = PoolColorArray( 0.491913, 0.401825, 0.773438, 1, 0.413025, 0.445467, 0.789062, 1 )
+
+[sub_resource type="GradientTexture2D" id=11]
+gradient = SubResource( 10 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 200
+outline_size = 5
+outline_color = Color( 0.0941176, 0.027451, 0.211765, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 75
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=16]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ui/GameOver/Label:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ui/GameOver/Survived:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 618, 627 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ui/GameOver/Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ui/GameOver/Label:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ui/GameOver/Survived:rect_position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -704, 627 ), Vector2( -704, 627 ), Vector2( 704, 627 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ui/GameOver/Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Gradient" id=18]
+colors = PoolColorArray( 0.15625, 0.15625, 0.15625, 1, 0.167969, 0.167969, 0.167969, 1 )
+
+[sub_resource type="GradientTexture2D" id=19]
+gradient = SubResource( 18 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 200
+font_data = ExtResource( 2 )
+
+[sub_resource type="Curve" id=21]
+min_value = 1.0
+max_value = 6.0
+_data = [ Vector2( 0, 6 ), 0.0, -16.8, 0, 0, Vector2( 1, 1 ), -0.260332, 0.0, 0, 0 ]
+
+[node name="Map" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="WinCheck" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="AllPaths" type="Node2D" parent="."]
+
+[node name="Spots" type="Node2D" parent="."]
+
+[node name="WaveManager" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="InitialTimer" type="Timer" parent="WaveManager"]
+wait_time = 0.05
+one_shot = true
+
+[node name="NextWaveTimer" type="Timer" parent="WaveManager"]
+one_shot = true
+
+[node name="ui" type="CanvasLayer" parent="."]
+script = ExtResource( 5 )
+
+[node name="Shop" type="ItemList" parent="ui"]
+anchor_top = 0.088
+anchor_right = 1.0
+anchor_bottom = 0.877
+margin_left = 4.0
+margin_top = -0.0400085
+margin_right = -1336.0
+margin_bottom = -0.160034
+size_flags_horizontal = 3
+theme = ExtResource( 9 )
+max_columns = 3
+icon_mode = 0
+script = ExtResource( 6 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ui"]
+anchor_right = 1.0
+
+[node name="Money" type="Label" parent="ui/HBoxContainer"]
+margin_top = 6.0
+margin_right = 110.0
+margin_bottom = 59.0
+custom_fonts/font = SubResource( 4 )
+text = "Money"
+
+[node name="VSeparator" type="VSeparator" parent="ui/HBoxContainer"]
+margin_left = 114.0
+margin_right = 118.0
+margin_bottom = 66.0
+
+[node name="Life" type="Label" parent="ui/HBoxContainer"]
+margin_left = 122.0
+margin_top = 6.0
+margin_right = 192.0
+margin_bottom = 59.0
+custom_fonts/font = SubResource( 5 )
+text = "Life"
+
+[node name="Market" type="Button" parent="ui/HBoxContainer"]
+margin_left = 196.0
+margin_right = 343.0
+margin_bottom = 66.0
+theme = ExtResource( 9 )
+text = "Marché"
+
+[node name="TowerMenu" type="Control" parent="ui"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+
+[node name="GridContainer" type="GridContainer" parent="ui/TowerMenu"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -109.0
+margin_top = -55.0
+margin_right = 109.0
+columns = 2
+
+[node name="Upgrade" type="Button" parent="ui/TowerMenu/GridContainer"]
+margin_right = 185.0
+margin_bottom = 66.0
+theme = ExtResource( 9 )
+shortcut_in_tooltip = false
+shortcut = SubResource( 7 )
+text = "Améliorer"
+
+[node name="Sell" type="Button" parent="ui/TowerMenu/GridContainer"]
+margin_left = 189.0
+margin_right = 336.0
+margin_bottom = 66.0
+theme = ExtResource( 9 )
+shortcut_in_tooltip = false
+shortcut = SubResource( 9 )
+text = "Vendre"
+
+[node name="GameOver" type="Control" parent="ui"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 11 )
+
+[node name="TextureRect" type="TextureRect" parent="ui/GameOver"]
+modulate = Color( 1, 1, 1, 0.52549 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 11 )
+expand = true
+
+[node name="Label" type="Label" parent="ui/GameOver"]
+anchor_left = 0.254
+anchor_top = -0.015
+anchor_right = 0.254
+margin_left = -487.68
+margin_top = 96.2
+margin_right = 1432.32
+margin_bottom = 324.2
+rect_pivot_offset = Vector2( 1008, 112 )
+custom_colors/font_color = Color( 0.6, 0.262745, 0.262745, 1 )
+custom_colors/font_color_shadow = Color( 0, 0.0470588, 0.231373, 1 )
+custom_constants/shadow_offset_x = 10
+custom_constants/shadow_offset_y = 5
+custom_fonts/font = SubResource( 12 )
+text = "Submergée"
+align = 1
+
+[node name="Survived" type="Label" parent="ui/GameOver"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 618.0
+margin_top = 627.0
+margin_right = 1130.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 13 )
+text = "0 Waves Survived"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ui/GameOver"]
+root_node = NodePath("../../..")
+anims/RESET = SubResource( 16 )
+anims/appear = SubResource( 17 )
+
+[node name="Restart" type="Button" parent="ui/GameOver"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -158.0
+margin_top = -262.0
+margin_right = 158.0
+margin_bottom = -147.0
+theme = ExtResource( 15 )
+text = "Réessayer"
+
+[node name="Pause" type="Control" parent="ui"]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 14 )
+
+[node name="TextureRect" type="TextureRect" parent="ui/Pause"]
+modulate = Color( 1, 1, 1, 0.403922 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 19 )
+expand = true
+
+[node name="Label" type="Label" parent="ui/Pause"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -242.5
+margin_right = 242.5
+margin_bottom = 228.0
+custom_fonts/font = SubResource( 20 )
+text = "Pause"
+
+[node name="Restart" type="Button" parent="ui/Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -124.0
+margin_top = -46.5
+margin_right = 124.0
+margin_bottom = 46.5
+theme = ExtResource( 15 )
+text = "Recommencer"
+
+[node name="Fade" type="ColorRect" parent="ui"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="StockMarket" type="ItemList" parent="ui"]
+anchor_left = 0.064
+anchor_top = 0.066
+anchor_right = 0.295
+anchor_bottom = 0.231
+margin_left = 0.119995
+margin_top = -0.279999
+margin_right = 0.599976
+margin_bottom = -0.480011
+theme = ExtResource( 9 )
+items = [ "Souls", ExtResource( 1 ), false, "Life", ExtResource( 1 ), false ]
+max_columns = 2
+script = ExtResource( 3 )
+life_value_scale = SubResource( 21 )
+
+[connection signal="timeout" from="WinCheck" to="." method="_on_WinCheck_timeout"]
+[connection signal="all_spawned" from="WaveManager" to="." method="_on_WaveManager_all_spawned"]
+[connection signal="timeout" from="WaveManager/InitialTimer" to="WaveManager" method="_on_InitialTimer_timeout"]
+[connection signal="timeout" from="WaveManager/NextWaveTimer" to="WaveManager" method="_on_NextWaveTimer_timeout"]
+[connection signal="item_activated" from="ui/Shop" to="ui/Shop" method="_on_Shop_item_activated"]
+[connection signal="pressed" from="ui/HBoxContainer/Market" to="ui" method="_on_Market_pressed"]
+[connection signal="pressed" from="ui/TowerMenu/GridContainer/Upgrade" to="ui/TowerMenu" method="_on_Upgrade_pressed"]
+[connection signal="pressed" from="ui/TowerMenu/GridContainer/Sell" to="ui/TowerMenu" method="_on_Sell_pressed"]
+[connection signal="pressed" from="ui/GameOver/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="ui/Pause/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="item_activated" from="ui/StockMarket" to="ui/StockMarket" method="_on_StockMarket_item_activated"]

@@ -1,0 +1,69 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ouais c'est pas trop ça."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Y'avait plus le temps pour dessiner les niveaux donc il s'est débrouillé."
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": false,
+			"wait_seconds": 0.1
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Mais c'est pas grave. De toute façon tous les humains ont fini dans les limbes; c'est pas comme si quelqu'un avait survécu pour voir ça."
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": false,
+			"wait_seconds": 0.5
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hé, toi ! Retourne travailler !"
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "T'as encore plein d'âmes qui veulent aller au paradis."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1747905534.json",
+		"name": "l1_1"
+	}
+}

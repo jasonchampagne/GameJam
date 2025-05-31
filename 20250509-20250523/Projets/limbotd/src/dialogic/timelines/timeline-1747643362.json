@@ -1,0 +1,51 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "C'est pas trop mauvais. Mais ça ne suffira pas à arrêter un groupe d'âmes."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Achète une autre tour."
+		},
+		{
+			"call_node": {
+				"arguments": [
+
+				],
+				"method_name": "appear",
+				"target_node_path": "/root/Tutorial/Spots/TowerSpot5"
+			},
+			"event_id": "dialogic_042"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1747643362.json",
+		"name": "tuto2"
+	}
+}

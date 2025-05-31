@@ -1,0 +1,211 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Il n'y a jamais eu d'âmes qui tentent de s'évader.\nSimplement parce que le pouvoir de la Faucheuse est absolu sur les âmes."
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Haha..."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Si les âmes fonçent vers la sortie des limbes, c'est uniquement de son fait. "
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Elle n'a jamais eu l'intention de te laisser partir."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Je croyais que t'étais plus là, toi."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "J'ai été retirée en milieu de parcours, mais j'ai survécu."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Je suis la déesse martiale qui va offrir un avenir aux âmes qui n'ont pas à payer pour ce que les pires specimens ont fait."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ben voyons."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"99999"
+				],
+				"method_name": "add_money",
+				"target_node_path": "PLAYER"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"999"
+				],
+				"method_name": "add_life",
+				"target_node_path": "PLAYER"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "!?"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Maintenant ton petit jeu n'a plus aucun intérêt."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Pff..."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "MOUHAHAHA !"
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ouais nan, ça passe vraiment pas sans changement d'illustration."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "J'aurais pas dû lui faucher son âme avant qu'il ne puisse tout dessiner."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Tu crois vraiment que lui mettre la vie à fond et lui donner plus d'âmes qu'il n'en aurait jamais eu suffira ?"
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Comme tu l'as si bien dit, ces âmes sont à MOI."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Que !?"
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "C'est tout ce que tu peux faire ? T'aurais mieux fait de rester en dehors de ça."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Qu'est-ce qu'une déesse sans texture peut bien faire pour m'inquiéter ? Cette âme ne survivra même pas à une seule vague.\nIl n'y a pas la moindre tour pour t'aider. "
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "TU CROYAIS VRAIMENT AVOIR LE TEMPS DE CHANGER LE GAMEPLAY JUSTE POUR LE NIVEAU D'APRÈS LA FIN ?"
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ah...\nSi seulement j'avais d'autres ilustrations..."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Sois reconnaissante, âme égarée. Tu as l'honneur d'expérimenter une fraction de ce qui était initialement prévu."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Humain, écoute-moi ! Dès que ça commence, achète tout direct !\nElle va envoyer ce que j'aurais dû posséder pour sauver ces âmes !"
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "C'est pathétique.\nVoyons combien de temps tu tiendras."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "PRÉPARE-TOI ! Contemple le désespoir absolu après ta fin !"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1747919677.json",
+		"name": "l1_6"
+	}
+}

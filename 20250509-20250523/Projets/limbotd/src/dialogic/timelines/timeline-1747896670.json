@@ -1,0 +1,75 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "C'est loin d'être parfait."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Mais c'est bien mieux que ces incapables."
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": false,
+			"wait_seconds": 0.2
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Y'en a même un qui a vendu sa tour dès le début et s'est retrouvé sans rien."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "J'te jure, ces âmes savent crier et montrer les crocs; mais pour réfléchir y a plus personne."
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Enfin, fallait pas s'attendre à grand chose. C'est leur problème s'ils ont tous finis dans les limbes."
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": false,
+			"wait_seconds": 0.2
+		},
+		{
+			"character": "character-1747303896.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Allez, vas-donc enseigner l'humilité à ces fuyards !"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1747896670.json",
+		"name": "tuto_fin"
+	}
+}

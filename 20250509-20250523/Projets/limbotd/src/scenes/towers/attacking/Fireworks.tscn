@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://graphics/panic.png" type="Texture" id=1]
+[ext_resource path="res://code/components/ShootComponent.gd" type="Script" id=2]
+[ext_resource path="res://scenes/towers/TowerCommon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://code/towers/Fireworks.gd" type="Script" id=4]
+[ext_resource path="res://scenes/towers/bullets/Firework.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 16.1245
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 500.0
+
+[node name="Fireworks" type="StaticBody2D" groups=["towers"]]
+collision_layer = 2
+script = ExtResource( 4 )
+tower_range = 500
+damages = 5.0
+slow = 0.1
+bullet_scene = ExtResource( 5 )
+lock_rotation = true
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1099, 409, 207, 185 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Detection" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+shape = SubResource( 2 )
+
+[node name="ShootComponent" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="TowerCommon" parent="." instance=ExtResource( 3 )]

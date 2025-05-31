@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://code/components/movement/PathFollowComponent.gd" type="Script" id=1]
+[ext_resource path="res://shaders/Enemy.gdshader" type="Shader" id=2]
+[ext_resource path="res://scenes/enemies/EnemyBase.tscn" type="PackedScene" id=3]
+[ext_resource path="res://graphics/panic.png" type="Texture" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/blink_color = Color( 0.772549, 0.772549, 0.772549, 1 )
+shader_param/blink_intensity = 0.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 32.0
+
+[node name="Tank" instance=ExtResource( 3 )]
+material = SubResource( 1 )
+
+[node name="PathFollowComponent" type="Node" parent="." index="0"]
+script = ExtResource( 1 )
+base_speed = 50.0
+look_at_path = true
+
+[node name="LifeComponent" parent="." index="1"]
+max_life = 750.0
+
+[node name="MoneyDropComponent" parent="." index="3"]
+amount = 50
+
+[node name="Sprite" type="Sprite" parent="." index="4"]
+use_parent_material = true
+position = Vector2( 22, 0 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 4 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 546.657, 315.882, 507.735, 299.881 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
+shape = SubResource( 2 )
+
+[node name="Lifebar" parent="." index="6"]
+margin_left = -32.0
+margin_top = -49.0
+margin_right = 218.0
+margin_bottom = 1.0
+
+[connection signal="slowed" from="." to="PathFollowComponent" method="set_slow_amount"]

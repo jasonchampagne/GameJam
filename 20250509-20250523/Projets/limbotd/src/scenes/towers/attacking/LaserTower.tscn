@@ -1,0 +1,151 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://code/towers/Tower.gd" type="Script" id=1]
+[ext_resource path="res://code/components/ShootComponent.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://code/components/LaserComponent.gd" type="Script" id=4]
+[ext_resource path="res://shaders/laser.gdshader" type="Shader" id=5]
+[ext_resource path="res://scenes/towers/TowerCommon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://graphics/particles/laser1.png" type="Texture" id=7]
+[ext_resource path="res://graphics/panic.png" type="Texture" id=8]
+
+[sub_resource type="CircleShape2D" id=1]
+resource_local_to_scene = true
+radius = 400.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 21.0238
+
+[sub_resource type="Gradient" id=15]
+interpolation_mode = 2
+offsets = PoolRealArray( 0, 0.516129, 1 )
+colors = PoolColorArray( 1, 0, 0, 1, 0.431373, 0, 0.686275, 1, 1, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=16]
+gradient = SubResource( 15 )
+
+[sub_resource type="OpenSimplexNoise" id=23]
+period = 33.6
+persistence = 0.369
+lacunarity = 1.3
+
+[sub_resource type="NoiseTexture" id=24]
+width = 300
+height = 300
+seamless = true
+noise = SubResource( 23 )
+
+[sub_resource type="ShaderMaterial" id=14]
+resource_local_to_scene = true
+shader = ExtResource( 5 )
+shader_param/scroll_speed = -2.0
+shader_param/noise_color = Color( 1, 1, 1, 1 )
+shader_param/color_ramp = SubResource( 16 )
+shader_param/noise = SubResource( 24 )
+
+[sub_resource type="Curve" id=3]
+min_value = 0.2
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.527273 ), -1.54067, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0.00645161, 0.225806, 1 )
+colors = PoolColorArray( 1, 0.816406, 0.816406, 1, 0.719238, 0.261286, 0.261286, 1, 0.866667, 0.443137, 0, 0.45098 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 100.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 6.0
+color_ramp = SubResource( 6 )
+
+[sub_resource type="CanvasItemMaterial" id=9]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=19]
+colors = PoolColorArray( 1, 1, 1, 0.985832, 1, 1, 1, 0.686275 )
+
+[sub_resource type="GradientTexture" id=20]
+gradient = SubResource( 19 )
+
+[sub_resource type="Curve" id=21]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=22]
+curve = SubResource( 21 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.05
+scale_curve = SubResource( 22 )
+color = Color( 1, 0, 0, 1 )
+color_ramp = SubResource( 20 )
+
+[node name="LaserTower" type="StaticBody2D" groups=["towers"]]
+collision_layer = 2
+script = ExtResource( 1 )
+tower_range = 200
+damages = 0.1
+slow = 0.5
+muzzle_path = NodePath("Muzzle")
+
+[node name="ShootComponent" type="Node" parent="."]
+script = ExtResource( 2 )
+shooting_rate = 0.0
+
+[node name="Detection" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 17, -1 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 1386.4, 771.241, 270.102, 162.061 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="Muzzle" type="Position2D" parent="."]
+position = Vector2( 47, 0 )
+
+[node name="LaserComponent" type="Line2D" parent="."]
+material = SubResource( 14 )
+points = PoolVector2Array( 48, -72, 224, -72 )
+width_curve = SubResource( 3 )
+default_color = Color( 0.4, 0.501961, 1, 1 )
+texture = ExtResource( 3 )
+texture_mode = 2
+script = ExtResource( 4 )
+muzzle_path = NodePath("../Muzzle")
+impact_effect = NodePath("../Particles2D")
+impact_light_path = NodePath("../Particles2D/Particles2D")
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 88, 0 )
+amount = 32
+lifetime = 0.5
+randomness = 0.6
+process_material = SubResource( 7 )
+
+[node name="Particles2D" type="Particles2D" parent="Particles2D"]
+material = SubResource( 9 )
+emitting = false
+amount = 16
+lifetime = 2.0
+local_coords = false
+process_material = SubResource( 12 )
+texture = ExtResource( 7 )
+
+[node name="TowerCommon" parent="." instance=ExtResource( 6 )]

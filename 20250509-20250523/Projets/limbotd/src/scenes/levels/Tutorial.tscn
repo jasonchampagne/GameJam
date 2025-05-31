@@ -1,0 +1,171 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scenes/map.tscn" type="PackedScene" id=1]
+[ext_resource path="res://graphics/maps/tuto.png" type="Texture" id=2]
+[ext_resource path="res://scenes/towers/TowerSpot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/enemies/EnemySpawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://materials/limbo.tres" type="Material" id=5]
+[ext_resource path="res://code/dialog/DialogTrigger.gd" type="Script" id=6]
+[ext_resource path="res://scenes/enemies/EnemyPackSpawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/enemies/basic/Speedy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/enemies/basic/tank.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Curve2D" id=9]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1025, 388, 0, 0, 0, 0, -1031, 398 )
+}
+
+[sub_resource type="Curve2D" id=8]
+bake_interval = 2.0
+_data = {
+"points": PoolVector2Array( 143.631, -531.687, -143.631, 531.687, 982, -537, 65.5159, -2.51984, -65.5159, 2.51984, 413, 2, -5.03967, 211.667, 5.03967, -211.667, -81, -340, 133.552, -692.957, -133.552, 692.957, -1072, 391 )
+}
+
+[node name="Tutorial" instance=ExtResource( 1 )]
+player_money = 175
+end_timeline = "tuto_fin"
+
+[node name="Sprite" type="Sprite" parent="." index="2"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="Path2D" type="Path2D" parent="AllPaths" index="0"]
+curve = SubResource( 9 )
+
+[node name="Path2D2" type="Path2D" parent="AllPaths" index="1"]
+curve = SubResource( 8 )
+
+[node name="TowerSpot" parent="Spots" index="0" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( -254, -237 )
+
+[node name="TowerSpot2" parent="Spots" index="1" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( -736, 264 )
+
+[node name="TowerSpot3" parent="Spots" index="2" instance=ExtResource( 3 )]
+position = Vector2( 456, 272 )
+
+[node name="TowerSpot4" parent="Spots" index="3" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( -47, 261 )
+
+[node name="TowerSpot5" parent="Spots" index="4" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( -160, 264 )
+
+[node name="TowerSpot6" parent="Spots" index="5" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( -560, -8 )
+
+[node name="WaveManager" parent="." index="5"]
+time_before_start_wave = PoolRealArray( 0, 60, 57, 45, 40, 40, 95, 30 )
+start_timelines = {
+0: "tuto1",
+1: "tuto2",
+3: "tuto4"
+}
+
+[node name="0" type="Node2D" parent="WaveManager" index="2"]
+
+[node name="EnemySpawner" parent="WaveManager/0" index="0" instance=ExtResource( 4 )]
+path_path = NodePath("../../../AllPaths/Path2D")
+number = 5
+delay = 10.0
+
+[node name="1" type="Node2D" parent="WaveManager" index="3"]
+
+[node name="EnemySpawner" parent="WaveManager/1" index="0" instance=ExtResource( 4 )]
+path_path = NodePath("../../../AllPaths/Path2D")
+number = 10
+delay = 4.0
+
+[node name="3" type="Node2D" parent="WaveManager" index="4"]
+
+[node name="EnemySpawner" parent="WaveManager/3" index="0" instance=ExtResource( 4 )]
+path_path = NodePath("../../../AllPaths/Path2D")
+number = 10
+delay = 2.3
+
+[node name="DialogTrigger" type="Node2D" parent="WaveManager/3" index="1"]
+script = ExtResource( 6 )
+timeline = "tuto3"
+wait_time = 5.0
+
+[node name="4" type="Node2D" parent="WaveManager" index="5"]
+
+[node name="EnemyPackSpawner" parent="WaveManager/4" index="0" instance=ExtResource( 7 )]
+path_path = NodePath("../../../AllPaths/Path2D")
+number = 2
+delay = 10.0
+
+[node name="Position2D" type="Position2D" parent="WaveManager/4/EnemyPackSpawner" index="2"]
+position = Vector2( 38, 0 )
+
+[node name="Position2D3" type="Position2D" parent="WaveManager/4/EnemyPackSpawner" index="3"]
+position = Vector2( 1, -38 )
+
+[node name="Position2D5" type="Position2D" parent="WaveManager/4/EnemyPackSpawner" index="4"]
+position = Vector2( -34, -1 )
+
+[node name="Position2D7" type="Position2D" parent="WaveManager/4/EnemyPackSpawner" index="5"]
+position = Vector2( 2, 32 )
+
+[node name="Position2D8" type="Position2D" parent="WaveManager/4/EnemyPackSpawner" index="6"]
+position = Vector2( 2, -1 )
+
+[node name="Position2D9" type="Position2D" parent="WaveManager/4/EnemyPackSpawner" index="7"]
+position = Vector2( 79, 1 )
+
+[node name="Position2D10" type="Position2D" parent="WaveManager/4/EnemyPackSpawner" index="8"]
+position = Vector2( 35, -39 )
+
+[node name="Position2D11" type="Position2D" parent="WaveManager/4/EnemyPackSpawner" index="9"]
+position = Vector2( 35, 29 )
+
+[node name="DialogTrigger" type="Node2D" parent="WaveManager/4" index="1"]
+script = ExtResource( 6 )
+timeline = "tuto5"
+wait_time = 7.0
+
+[node name="5" type="Node2D" parent="WaveManager" index="6"]
+
+[node name="EnemySpawner" parent="WaveManager/5" index="0" instance=ExtResource( 4 )]
+path_path = NodePath("../../../AllPaths/Path2D2")
+number = 7
+delay = 5.5
+
+[node name="DialogTrigger" type="Node2D" parent="WaveManager/5" index="1"]
+script = ExtResource( 6 )
+timeline = "tuto6"
+wait_time = 10.0
+
+[node name="6" type="Node2D" parent="WaveManager" index="7"]
+
+[node name="EnemySpawner" parent="WaveManager/6" index="0" instance=ExtResource( 4 )]
+scene = ExtResource( 9 )
+path_path = NodePath("../../../AllPaths/Path2D")
+
+[node name="DialogTrigger" type="Node2D" parent="WaveManager/6" index="1"]
+script = ExtResource( 6 )
+timeline = "tuto7"
+wait_time = 5.0
+
+[node name="7" type="Node2D" parent="WaveManager" index="8"]
+
+[node name="EnemySpawner" parent="WaveManager/7" index="0" instance=ExtResource( 4 )]
+scene = ExtResource( 8 )
+path_path = NodePath("../../../AllPaths/Path2D")
+number = 5
+delay = 2.0
+
+[node name="Shop" parent="ui" index="0"]
+hidden_items = PoolIntArray( 1, 2, 3 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="7"]
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground" index="0"]
+material = ExtResource( 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2

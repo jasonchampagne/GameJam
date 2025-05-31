@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://code/towers/Tower.gd" type="Script" id=1]
+[ext_resource path="res://code/components/ShootComponent.gd" type="Script" id=2]
+[ext_resource path="res://scenes/towers/bullets/Rocket.tscn" type="PackedScene" id=3]
+[ext_resource path="res://graphics/panic.png" type="Texture" id=4]
+[ext_resource path="res://scenes/towers/TowerCommon.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+resource_local_to_scene = true
+radius = 250.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 16.0
+
+[node name="MissileTower" type="StaticBody2D" groups=["towers"]]
+collision_layer = 2
+script = ExtResource( 1 )
+tower_range = 200
+damages = 50.0
+bullet_scene = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 1365.06, 433.258, 341.311, 208.715 )
+
+[node name="Detection" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+shape = SubResource( 1 )
+
+[node name="ShootComponent" type="Node" parent="."]
+script = ExtResource( 2 )
+shooting_rate = 2.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="TowerCommon" parent="." instance=ExtResource( 5 )]

@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=2]
+
+[ext_resource path="res://shaders/limbo.gdshader" type="Shader" id=1]
+
+[sub_resource type="OpenSimplexNoise" id=4]
+
+[sub_resource type="NoiseTexture" id=5]
+seamless = true
+noise = SubResource( 4 )
+
+[sub_resource type="OpenSimplexNoise" id=7]
+period = 85.3
+
+[sub_resource type="NoiseTexture" id=6]
+seamless = true
+noise = SubResource( 7 )
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/back_color = Color( 0, 0, 0, 1 )
+shader_param/color1 = Color( 0.294118, 0.121569, 0.521569, 1 )
+shader_param/color2 = Color( 0.392157, 0.541176, 0.698039, 1 )
+shader_param/scroll1 = Vector2( 0.02, 0 )
+shader_param/scroll2 = Vector2( -0.05, 0.09 )
+shader_param/wave_scroll = 0.1
+shader_param/noise1 = SubResource( 5 )
+shader_param/noise2 = SubResource( 6 )
