@@ -34,4 +34,11 @@ _...votre fin._
 
 ### Contrôles
 
++ Le jeu se joue à la souris.
++ Pour les contrôles au clavier
+    + `A` confirmer
+    + `Z` améliorer
+    + `S` vendre
+    + `F` retour
+
 ## Compilation/édition
