@@ -2,7 +2,15 @@
 
 ## Présentation
 
+![Capture d'écran du jeu](#)
+
 ## Comment jouer
+
++ Jeu réalisé en Python.
++ Installer les dépendances suivants (via PIP) :
+    + pygame
+    + pytmx
+    + pyscroll
 
 ## Crédits
 
