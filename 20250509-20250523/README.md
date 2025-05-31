@@ -1,5 +1,7 @@
 # Game Jam n°1
 
+> _Du 09/05/2025 au 23/05/2025_
+
 ![Thèmes de la Game Jam](https://github.com/jasonchampagne/GameJam/blob/main/20250509-20250523/th%C3%A8mes.png)
 
 ---
