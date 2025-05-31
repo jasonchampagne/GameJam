@@ -39,7 +39,17 @@ Au bout de 3 labyrinthes, vous affronterez un boss qui a un (1) pouvoir qui vous
 
 Pour le moment les interactions sont essentiellement prévues à la souris, mais il est à noter que la barre d'espace (ou entrée) est utilisée pour faire un retour en arrière de carte durant un labyrinthe.
 
-+ Vous choisissez une carte dans votre main et elle fera (si c'est une carte de déplacement) déplacer votre personnage dans la direction actuelle.
-+ Si la carte ne peut pas fonctionner (sortie du labyrinthe par exemple), elle ne pourra pas arriver sur un slot, elle sera automatiquement bloquée.
-+ Lorsque vous n'avez plus de slots dispo, vous devez libérer des slots en validant la main, et libérer ainsi des slots, mais par contre une fois cette action faite il n'est plus possible de faire de rollback sur les cartes qui ne sont plus sur un slot.
-+ Les touches directionnelles permettent de donner la direction du personnage et de selectionner automatiquement la premiere carte de mouvement diponible (pour fluidifier les déplacements)
+Vous choisissez une carte dans votre main et elle fera (si c'est une carte de déplacement) déplacer votre personnage dans la direction actuelle. Si la carte ne peut pas fonctionner (sortie du labyrinthe par exemple), elle ne pourra pas arriver sur un slot, elle sera automatiquement bloquée.
+
+Lorsque vous n'avez plus de slots dispo, vous devez libérer des slots en validant la main, et libérer ainsi des slots, mais par contre une fois cette action faite il n'est plus possible de faire de rollback sur les cartes qui ne sont plus sur un slot. Les touches directionnelles permettent de donner la direction du personnage et de selectionner automatiquement la premiere carte de mouvement diponible (pour fluidifier les déplacements)
+
+### Niveau
+ * SPOILER
+
+Les niveaux dans cette version s'enchainent de cette manière
+    - labyrinthe
+    - boutique
+    - labyrinthe
+    - boutique
+    - boss
+ * FIN SPOILER
