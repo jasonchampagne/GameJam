@@ -1,0 +1,38 @@
+******************** Bienvenue dans un monde où l'humanité a échoué… ************************************************************
+ 
+Une catastrophe sans précédent a plongé le monde dans le chaos. Des hordes de morts-vivants errent dans les rues. Les villes sont en ruine. Les survivants sont rares... et désespérés.
+
+Dans TheEnd, vous incarnez Jason, un homme ordinaire brisé par l'apocalypse. Quand tout s'est effondré, sa femme et son fils ont fui pour survivre... sans lui. Depuis, plus aucun signe de vie.
+
+Poussé par l'instinct, l'espoir ou peut-être la folie, Jason part à leur recherche à travers un monde infesté de zombies. Il devra braver la faim, la peur, les ennemis... et ses propres démons.
+
+Explorez des villes abandonnées, trouvez des indices, affrontez des créatures impitoyables et découvrez ce qu'il reste de l'humanité.
+
+**********************************************************************************************************************************
+
+
+
+INSTRUCTIONS D'EXÉCUTION : 
+- Ouvrez le dossier "TheEndFinal", double cliquez sur le fichier "TheEnd.bat". Et le jeu devrait se lancer.
+
+
+INSTRUCTIONS de jeu : 
+Je n'ai pas eu le temps de développer assez le jeu pour afficher les touches directement onscreen, donc je les mets ici.
+1. Z-Q-S-D (Azerty) pour déplacer le personnage.
+2. [E] pour les prendre des items, intéragir avec le decors, ect...
+3. [L] pour drop un item de l'inventaire.
+4. [M] pour afficher quelque informations de debug (qui ne sont pas censé être là)
+5. [Space] pour tirer avec une arme.
+6. Numpad[1-5] ou les touches numériques principales[1-5] pour intéragir avec l'inventaire.
+
+
+À PROPOS DU DEVELOPPEMENT:
+J'ai développé ce jeu avec le language de programmation C# et dotnet, et avec le framework Monogame.
+Dans le dossier src, il y a le code source (classes, ect)
+Dans le dossier Content, les assets sont présentes.
+Dans le dossier bin, les libs, exe, dlls, ect.
+
+
+QUELQUES INFORMATIONS SUPPLÉMENTAIRES :
+Je n'ai pas eu énormément de temps pour développer ce jeu, il est donc court à découvrir.  
+Je vous souhaite malgré tout une bonne expérience de jeu !
