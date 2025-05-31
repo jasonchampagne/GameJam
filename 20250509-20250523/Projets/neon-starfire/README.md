@@ -44,12 +44,13 @@ Vous choisissez une carte dans votre main et elle fera (si c'est une carte de d�
 Lorsque vous n'avez plus de slots dispo, vous devez libérer des slots en validant la main, et libérer ainsi des slots, mais par contre une fois cette action faite il n'est plus possible de faire de rollback sur les cartes qui ne sont plus sur un slot. Les touches directionnelles permettent de donner la direction du personnage et de selectionner automatiquement la premiere carte de mouvement diponible (pour fluidifier les déplacements)
 
 ### Niveau
- * SPOILER
 
+<details>
+<summary>Afficher/masquer</summary>
 Les niveaux dans cette version s'enchainent de cette manière
     - labyrinthe
     - boutique
     - labyrinthe
     - boutique
     - boss
- * FIN SPOILER
+</details>
