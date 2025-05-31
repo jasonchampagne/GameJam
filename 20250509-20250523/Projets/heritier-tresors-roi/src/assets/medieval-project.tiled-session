@@ -1,0 +1,39 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "startmap.tmx",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "Medieval Tileset.tsx": {
+            "scaleInDock": 0.75,
+            "scaleInEditor": 1
+        },
+        "startmap.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 6,
+            "viewCenter": {
+                "x": 528,
+                "y": 229.33333333333331
+            }
+        }
+    },
+    "last.imagePath": "C:/Users/LoloXav/Desktop/GamJam/game/src/assets/medieval",
+    "map.height": 40,
+    "map.lastUsedFormat": "tmx",
+    "map.width": 40,
+    "openFiles": [
+        "startmap.tmx",
+        "Medieval Tileset.tsx"
+    ],
+    "project": "medieval-project.tiled-project",
+    "recentFiles": [
+        "Medieval Tileset.tsx",
+        "startmap.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.transparentColor": "#000000",
+    "tileset.useTransparentColor": true
+}
