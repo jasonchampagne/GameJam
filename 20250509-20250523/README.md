@@ -11,12 +11,12 @@
 
 ---
 
-|NOM DU PROJET|AUTEUR(S)|EXÉCUTABLE|CODE|
-|:--|:--|:--:|:--:|
-|**Au final**|langop|[télécharger](#)|[consulter](#)|
-|**Director's Cut**|slazaa, thibault_pnd, oblerion|[télécharger](#)|[consulter](#)|
-|**ETZ**|tamigore, eestela, zordhan|[télécharger](#)|[consulter](#)|
-|**L'Héritier des trésors du roi**|Mr_Le_Mal|[télécharger](#)|[consulter](#)|
-|**LimboTD**|inkya|[télécharger](#)|[consulter](#)|
-|**Neon Starfire**|.lyrz|[télécharger](#)|[consulter](#)|
-|**The End**|anas05_|[télécharger](#)|[consulter](#)|
+|NOM DU PROJET|AUTEUR(S)|PRÉSENTATION|EXÉCUTABLE|CODE|
+|:--|:--|:--:|:--:|:--:|
+|**Au final**|langop|[accéder](#)|[télécharger](#)|[consulter](#)|
+|**Director's Cut**|slazaa, thibault_pnd, oblerion|[accéder](#)|[télécharger](#)|[consulter](#)|
+|**ETZ**|tamigore, eestela, zordhan|[accéder](#)|[télécharger](#)|[consulter](#)|
+|**L'Héritier des trésors du roi**|Mr_Le_Mal|[accéder](#)|[télécharger](#)|[consulter](#)|
+|**LimboTD**|inkya|[accéder](#)|[télécharger](#)|[consulter](#)|
+|**Neon Starfire**|.lyrz|[accéder](#)|[télécharger](#)|[consulter](#)|
+|**The End**|anas05_|[accéder](#)|[télécharger](#)|[consulter](#)|
