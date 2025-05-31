@@ -5,6 +5,7 @@
 ---
 
 + [Manuel du Game Jamer](https://github.com/jasonchampagne/GameJam/blob/main/20250509-20250523/Manuel%20du%20Game%20Jamer.pdf)
++ [Guide de notation](https://github.com/jasonchampagne/GameJam/blob/main/20250509-20250523/Guide%20de%20notation.pdf)
 
 ---
 
