@@ -19,12 +19,18 @@ _...votre fin._
 
 ### GNU/Linux
 
++ Lancer l'exécutable normalement (le jeu tourne sous X11)
+
 > [!NOTE]
 > Préférer cette plateforme si des bugs sont à déplorer (bien que Wayland soit censé pouvoir le supporter)
 
-+ Lancer l'exécutable normalement (le jeu tourne sous X11)
-
 ### HTML
+
++ Servir les fichiers du dossier html5 sur un serveur web.
++ Lancer à partir du fichier `x86_64.html`
+
+> [!NOTE]
+> Votre navigateur doit supporter WebGL ET WebAssembly
 
 ### Contrôles
 
