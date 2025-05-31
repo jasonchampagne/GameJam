@@ -42,3 +42,7 @@ _...votre fin._
     + `F` retour
 
 ## Compilation/édition
+
++ Utiliser une version de [Godot 3.5](https://godotengine.org/)
++ Si des problèmes surviennent, utiliser la même version que celle utilisée pour développer ce jeu : v3.5.3.stable.official (6c814135b)
++ Si les dialogues ne fonctionnent pas, vérifier que le plugin Dialogic est bien activé.
