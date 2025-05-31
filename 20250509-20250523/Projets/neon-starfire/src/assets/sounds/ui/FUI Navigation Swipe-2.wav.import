@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bhxh5bl6jdck0"
+path="res://.godot/imported/FUI Navigation Swipe-2.wav-57a3c4e77a01f2ca6155ac9ba43af347.sample"
+
+[deps]
+
+source_file="res://assets/sounds/ui/FUI Navigation Swipe-2.wav"
+dest_files=["res://.godot/imported/FUI Navigation Swipe-2.wav-57a3c4e77a01f2ca6155ac9ba43af347.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

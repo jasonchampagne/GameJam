@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b240y03y70tek"]
+
+[ext_resource type="PackedScene" uid="uid://vh1ucj2rfbby" path="res://addons/maaacks_game_template/base/scenes/menus/options_menu/mini_options_menu.tscn" id="1_ssitg"]
+[ext_resource type="Script" uid="uid://bgr1we7domv7w" path="res://scenes/menus/options_menu/mini_options_menu.gd" id="2_pdxmf"]
+
+[node name="MiniHelpMenu" instance=ExtResource("1_ssitg")]
+script = ExtResource("2_pdxmf")
+
+[node name="MuteControl" parent="." index="1"]
+visible = false
+
+[node name="FullscreenControl" parent="." index="2"]
+visible = false
+
+[node name="Label" type="Label" parent="." index="3"]
+layout_mode = 2
+text = "1. Choisis la direction du personage
+2. Choisis la carte
+3. Recommence jusqu'a ne plus avoir de slot
+4. Valide ta main
+5. Recommence"

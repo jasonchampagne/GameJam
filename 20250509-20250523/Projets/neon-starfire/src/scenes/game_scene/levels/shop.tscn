@@ -1,0 +1,233 @@
+[gd_scene load_steps=15 format=3 uid="uid://cpgdo4vt82xyl"]
+
+[ext_resource type="Script" uid="uid://bbovo5ug7qapp" path="res://scripts/shop.gd" id="1_dlug3"]
+[ext_resource type="Shader" uid="uid://baa3f3sd6iuxk" path="res://assets/effects/shaders/neon_shader_material.gdshader" id="2_dlug3"]
+[ext_resource type="FontFile" uid="uid://d1d86eifdvdw5" path="res://assets/fonts/NeonSans.ttf" id="3_uqdly"]
+[ext_resource type="Script" uid="uid://cetobsyf3jkrc" path="res://addons/simple_card_pile_ui/card_dropzone.gd" id="4_atk71"]
+[ext_resource type="Script" uid="uid://vvb54v70kahr" path="res://scenes/game_scene/tutorial_manager.gd" id="5_53epw"]
+[ext_resource type="Texture2D" uid="uid://b5gn7g5ojp8be" path="res://assets/cards/1x1_#ffffffff.png" id="5_veeyy"]
+[ext_resource type="PackedScene" uid="uid://do3bsy1c2hnbw" path="res://scenes/game_scene/tutorials/tutorial_2.tscn" id="6_rydx2"]
+[ext_resource type="Script" uid="uid://dnr61rvqvncxn" path="res://scripts/cards/line_card_pile_shop_ui.gd" id="6_uqdly"]
+[ext_resource type="PackedScene" uid="uid://biexnv3rn7e8u" path="res://scenes/game_scene/componants/card_display_collection.tscn" id="6_yghrn"]
+[ext_resource type="PackedScene" uid="uid://cec5254g6oe2f" path="res://scenes/game_scene/componants/lines_card_ui.tscn" id="7_tmgkw"]
+[ext_resource type="AudioStream" uid="uid://ulufcasymmm0" path="res://assets/sounds/ui/FUI Ease Into Position.wav" id="10_rydx2"]
+[ext_resource type="AudioStream" uid="uid://bhxh5bl6jdck0" path="res://assets/sounds/ui/FUI Navigation Swipe-2.wav" id="11_yghrn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_atk71"]
+shader = ExtResource("2_dlug3")
+shader_parameter/shine_color = Color(1, 0.180392, 0.92549, 1)
+shader_parameter/alpha_limit = 0.2
+shader_parameter/cycle_speed = 1.0
+shader_parameter/full_pulse_cycle = true
+shader_parameter/mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_tmgkw"]
+font = ExtResource("3_uqdly")
+font_size = 80
+font_color = Color(0.631373, 0, 1, 1)
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dlug3")
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2694.0
+offset_top = -1945.0
+offset_right = -2694.0
+offset_bottom = -1945.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(35.8678, 286.249)
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="ShopTitle" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
+material = SubResource("ShaderMaterial_atk71")
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+text = "SHOP"
+label_settings = SubResource("LabelSettings_tmgkw")
+
+[node name="CardShopZone" type="Control" parent="MarginContainer/VBoxContainer2" node_paths=PackedStringArray("card_pile_ui")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(168, 240)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+script = ExtResource("4_atk71")
+card_pile_ui = NodePath("../../../LinesCardPileShopUI")
+metadata/_custom_type_script = "uid://cetobsyf3jkrc"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer2/CardShopZone"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_veeyy")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="CardBasketZone" type="Control" parent="MarginContainer/VBoxContainer2/HBoxContainer4" node_paths=PackedStringArray("card_pile_ui")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(168, 240)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+script = ExtResource("4_atk71")
+card_pile_ui = NodePath("../../../../LinesCardPileShopUI")
+layout = 2
+metadata/_custom_type_script = "uid://cetobsyf3jkrc"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer2/HBoxContainer4/CardBasketZone"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_veeyy")
+
+[node name="CardAddedZone" type="Control" parent="MarginContainer/VBoxContainer2/HBoxContainer4" node_paths=PackedStringArray("card_pile_ui")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(168, 240)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("4_atk71")
+card_pile_ui = NodePath("../../../../LinesCardPileShopUI")
+layout = 2
+metadata/_custom_type_script = "uid://cetobsyf3jkrc"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer2/HBoxContainer4/CardAddedZone"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_veeyy")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+size_flags_stretch_ratio = 1.88
+
+[node name="CardDisplayText" parent="MarginContainer/VBoxContainer2/HBoxContainer3" instance=ExtResource("6_yghrn")]
+unique_name_in_owner = true
+position = Vector2(313, -356)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="Money" type="Label" parent="MarginContainer/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "MONEY"
+
+[node name="Cost" type="Label" parent="MarginContainer/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "COST"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="BuyButton" type="Button" parent="MarginContainer/VBoxContainer2/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Buy"
+
+[node name="NextLevel" type="Button" parent="MarginContainer/VBoxContainer2/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Next Level"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="TutorialButton" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+text = "Tutorial"
+
+[node name="TutorialManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_53epw")
+tutorial_scenes = Array[PackedScene]([ExtResource("6_rydx2")])
+
+[node name="LinesCardPileShopUI" type="Control" parent="." node_paths=PackedStringArray("shop", "card_shop_zone", "card_added_zone")]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_uqdly")
+shop = NodePath("..")
+card_shop_zone = NodePath("../MarginContainer/VBoxContainer2/CardShopZone")
+card_added_zone = NodePath("../MarginContainer/VBoxContainer2/HBoxContainer4/CardAddedZone")
+json_card_database_path = "res://scripts/cards/data/card_database_release.json"
+extended_card_ui = ExtResource("7_tmgkw")
+draw_pile_layout = 2
+discard_pile_layout = 2
+
+[node name="ButtonFocusSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_rydx2")
+bus = &"SFX"
+
+[node name="ButtonClickSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_yghrn")
+bus = &"SFX"
+
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer2/HBoxContainer2/BuyButton" to="." method="_on_button_focus"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer2/HBoxContainer2/BuyButton" to="." method="_on_button_focus"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/HBoxContainer2/BuyButton" to="." method="buy_cards"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer2/HBoxContainer2/NextLevel" to="." method="_on_button_focus"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer2/HBoxContainer2/NextLevel" to="." method="_on_button_focus"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/HBoxContainer2/NextLevel" to="." method="next_level"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer2/HBoxContainer2/TutorialButton" to="." method="_on_tutorial_button_pressed"]

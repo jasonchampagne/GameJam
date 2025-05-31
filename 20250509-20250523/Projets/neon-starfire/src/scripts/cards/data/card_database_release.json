@@ -1,0 +1,103 @@
+[
+	{
+		"nice_name": "Move",
+		"texture_path": "res://assets/cards/neon/Move.png",
+		"backface_texture_path": "res://assets/cards/neon/card_dice.png",
+		"resource_script_path": "res://scripts/cards/script_cards/basic_move.gd",
+		"type": "Attack",
+		"power": 1,
+		"cost": 1,
+		"description": "Move_desc"
+	},
+	{
+		"nice_name": "Move2x",
+		"texture_path": "res://assets/cards/neon/Move2x.png",
+		"backface_texture_path": "res://assets/cards/neon/card_dice.png",
+		"resource_script_path": "res://scripts/cards/script_cards/double_move.gd",
+		"type": "Attack",
+		"power": 3,
+		"cost": 2,
+		"description": "Move2x_desc"
+	},
+	{
+		"nice_name": "Gatling",
+		"texture_path": "res://assets/cards/neon/Gatling.png",
+		"backface_texture_path": "res://assets/cards/neon/card_dice.png",
+		"resource_script_path": "res://scripts/cards/script_cards/gatling_maze.gd",
+		"type": "Attack",
+		"power": 3,
+		"cost": 2,
+		"sound": "gatling.wav",
+		"description": "Gatling_desc"
+	},
+	{
+		"nice_name": "TurnMaze",
+		"texture_path": "res://assets/cards/neon/TurnMaze.png",
+		"backface_texture_path": "res://assets/cards/neon/card_dice.png",
+		"resource_script_path": "res://scripts/cards/script_cards/turn_maze.gd",
+		"type": "Attack",
+		"power": 3,
+		"cost": 2,
+		"description": "TurnMaze_desc"
+	},
+	{
+		"nice_name": "Bomb",
+		"texture_path": "res://assets/cards/neon/Bomb.png",
+		"backface_texture_path": "res://assets/cards/neon/card_dice.png",
+		"resource_script_path": "res://scripts/cards/script_cards/explose_maze.gd",
+		"type": "Attack",
+		"power": 3,
+		"cost": 2,
+		"description": "Bomb_desc"
+	},
+	{
+		"nice_name": "EnchantMaze",
+		"texture_path": "res://assets/cards/neon/EnchantMaze.png",
+		"backface_texture_path": "res://assets/cards/neon/card_dice.png",
+		"resource_script_path": "res://scripts/cards/script_cards/enchant_maze.gd",
+		"type": "Attack",
+		"power": 3,
+		"cost": 2,
+		"description": "EnchantMaze_desc"
+	},
+	{
+		"nice_name": "Ampli2x",
+		"texture_path": "res://assets/cards/neon/Ampli2x.png",
+		"backface_texture_path": "res://assets/cards/neon/card_dice.png",
+		"resource_script_path": "res://scripts/cards/script_cards/ampli_x2.gd",
+		"type": "Attack",
+		"power": 3,
+		"cost": 2,
+		"description": "Ampli2x_desc"
+	},
+	{
+		"nice_name": "Score2x",
+		"texture_path": "res://assets/cards/neon/Score2x.png",
+		"backface_texture_path": "res://assets/cards/neon/card_dice.png",
+		"resource_script_path": "res://scripts/cards/script_cards/score_x2.gd",
+		"type": "Attack",
+		"power": 3,
+		"cost": 2,
+		"description": "Score2x_desc"
+	},
+	{
+		"nice_name": "CatchPointAround",
+		"texture_path": "res://assets/cards/neon/CatchPointAround.png",
+		"backface_texture_path": "res://assets/cards/neon/card_dice.png",
+		"resource_script_path": "res://scripts/cards/script_cards/score_catch_around.gd",
+		"type": "Attack",
+		"power": 3,
+		"cost": 2,
+		"description": "CatchPointAround_desc"
+	},
+	{
+		"nice_name": "Player2x",
+		"texture_path": "res://assets/cards/neon/Player2x.png",
+		"backface_texture_path": "res://assets/cards/neon/card_dice.png",
+		"resource_script_path": "res://scripts/cards/script_cards/player_x2.gd",
+		"type": "Attack",
+		"power": 3,
+		"cost": 2,
+		"description": "Player2x_desc"
+	}
+]

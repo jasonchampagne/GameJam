@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://cg6yfc22lycs2"]
+
+[ext_resource type="PackedScene" uid="uid://b5cd6sa8qq4vc" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/menus/pause_menu.tscn" id="1_jotxm"]
+[ext_resource type="Script" uid="uid://c752whm25knmn" path="res://scenes/overlaid_menus/pause_menu.gd" id="2_ggfh4"]
+[ext_resource type="PackedScene" uid="uid://dycgawjhhffha" path="res://scenes/game_scene/cards_collection.tscn" id="3_g6ijm"]
+[ext_resource type="PackedScene" uid="uid://bajvyr7pkyndc" path="res://scenes/overlaid_menus/mini_options_overlaid_menu.tscn" id="3_n67em"]
+[ext_resource type="PackedScene" uid="uid://b2826aci101h8" path="res://scenes/overlaid_menus/help.tscn" id="4_6u4uu"]
+[ext_resource type="AudioStream" uid="uid://ulufcasymmm0" path="res://assets/sounds/ui/FUI Ease Into Position.wav" id="4_n67em"]
+[ext_resource type="AudioStream" uid="uid://bhxh5bl6jdck0" path="res://assets/sounds/ui/FUI Navigation Swipe-2.wav" id="5_g6ijm"]
+
+[node name="PauseMenu" instance=ExtResource("1_jotxm")]
+script = ExtResource("2_ggfh4")
+cards_collection_packed_scene = ExtResource("3_g6ijm")
+help_packed_scene = ExtResource("4_6u4uu")
+options_packed_scene = ExtResource("3_n67em")
+main_menu_scene = "res://scenes/menus/main_menu/main_menu_with_animations.tscn"
+
+[node name="TitleLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/TitleMargin" index="0"]
+text = "Pause"
+
+[node name="CardsCollection" type="Button" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="3"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "CARDS_COLLECTION"
+
+[node name="Help" type="Button" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="4"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Help"
+
+[node name="ButtonFocusSound" type="AudioStreamPlayer" parent="." index="5"]
+unique_name_in_owner = true
+stream = ExtResource("4_n67em")
+bus = &"SFX"
+
+[node name="ButtonClickSound" type="AudioStreamPlayer" parent="." index="6"]
+unique_name_in_owner = true
+stream = ExtResource("5_g6ijm")
+bus = &"SFX"
+
+[connection signal="pressed" from="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/CardsCollection" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/Help" to="." method="_on_help_button_pressed"]

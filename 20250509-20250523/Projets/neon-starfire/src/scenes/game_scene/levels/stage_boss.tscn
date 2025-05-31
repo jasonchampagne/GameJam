@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=3 uid="uid://dd7nbuggy70lv"]
+
+[ext_resource type="Script" uid="uid://20w8jtqhxg1i" path="res://scenes/game_scene/levels/stage_boss.gd" id="1_wai0y"]
+[ext_resource type="TileSet" uid="uid://dvwds6lttxwr5" path="res://assets/tiles/new_tile_set.tres" id="2_ndft5"]
+[ext_resource type="Script" uid="uid://k2f2mm3r0shh" path="res://scenes/game_scene/componants/shake_camera.gd" id="2_wai0y"]
+[ext_resource type="PackedScene" uid="uid://dgd6ydk6ets8d" path="res://scenes/game_scene/componants/player.tscn" id="3_wai0y"]
+[ext_resource type="PackedScene" uid="uid://c4fvad58a66ff" path="res://scenes/game_scene/componants/boss.tscn" id="4_ndft5"]
+[ext_resource type="PackedScene" uid="uid://cyuctlndfpr7d" path="res://scenes/game_scene/componants/ui_cards.tscn" id="4_pgtcj"]
+[ext_resource type="Script" uid="uid://vvb54v70kahr" path="res://scenes/game_scene/tutorial_manager.gd" id="5_k05ka"]
+[ext_resource type="PackedScene" uid="uid://do3bsy1c2hnbw" path="res://scenes/game_scene/tutorials/tutorial_2.tscn" id="6_aoua6"]
+
+[node name="BossStage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wai0y")
+
+[node name="ShakeCamera" type="Camera2D" parent="." node_paths=PackedStringArray("follow_node")]
+script = ExtResource("2_wai0y")
+follow_node = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/CanvasLayerMaze/Player")
+metadata/_custom_type_script = "uid://k2f2mm3r0shh"
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3176.0
+offset_top = -2319.0
+offset_right = -3176.0
+offset_bottom = -2319.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(35.8678, 286.249)
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CanvasLayerMaze" type="CanvasLayer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+follow_viewport_enabled = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="MarginContainer/VBoxContainer/HBoxContainer/CanvasLayerMaze"]
+unique_name_in_owner = true
+position = Vector2(327.5, 75)
+tile_set = ExtResource("2_ndft5")
+
+[node name="Player" parent="MarginContainer/VBoxContainer/HBoxContainer/CanvasLayerMaze" instance=ExtResource("3_wai0y")]
+unique_name_in_owner = true
+position = Vector2(284.5, 138)
+
+[node name="Boss" parent="MarginContainer/VBoxContainer/HBoxContainer/CanvasLayerMaze" node_paths=PackedStringArray("camera", "uicards") instance=ExtResource("4_ndft5")]
+unique_name_in_owner = true
+position = Vector2(115.5, 161)
+camera = NodePath("../../../../../ShakeCamera")
+uicards = NodePath("../../../../../UICards")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="TutorialButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Tutorial"
+
+[node name="AudioStreamSFX" type="AudioStreamPlayer" parent="MarginContainer"]
+unique_name_in_owner = true
+bus = &"SFX"
+
+[node name="UICards" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_pgtcj")]
+unique_name_in_owner = true
+player = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/CanvasLayerMaze/Player")
+
+[node name="TutorialManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_k05ka")
+tutorial_scenes = Array[PackedScene]([ExtResource("6_aoua6")])
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/TutorialButton" to="." method="_on_tutorial_button_pressed"]

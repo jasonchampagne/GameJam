@@ -1,0 +1,115 @@
+[gd_scene load_steps=9 format=3 uid="uid://dycgawjhhffha"]
+
+[ext_resource type="Script" uid="uid://c6q6cxegoume7" path="res://scenes/game_scene/cards_collection.gd" id="1_8v8o5"]
+[ext_resource type="AudioStream" uid="uid://d2s8nlfeclfch" path="res://assets/sounds/musics/menu.mp3" id="2_8v8o5"]
+[ext_resource type="AudioStream" uid="uid://ulufcasymmm0" path="res://assets/sounds/ui/FUI Ease Into Position.wav" id="3_2yvjv"]
+[ext_resource type="AudioStream" uid="uid://bhxh5bl6jdck0" path="res://assets/sounds/ui/FUI Navigation Swipe-2.wav" id="4_hre18"]
+[ext_resource type="FontFile" uid="uid://d1d86eifdvdw5" path="res://assets/fonts/NeonSans.ttf" id="5_8v8o5"]
+[ext_resource type="PackedScene" uid="uid://jcumulgimhe2" path="res://scenes/game_scene/componants/card_display.tscn" id="6_2yvjv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_il07t"]
+font = ExtResource("5_8v8o5")
+font_size = 80
+font_color = Color(0.631373, 0, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8v8o5"]
+
+[node name="CardsCollection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8v8o5")
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_8v8o5")
+bus = &"Music"
+
+[node name="ButtonFocusSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_2yvjv")
+bus = &"SFX"
+
+[node name="ButtonClickSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_hre18")
+bus = &"SFX"
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 5
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="InputDisplayLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CARDS_COLLECTION"
+label_settings = SubResource("LabelSettings_il07t")
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Findings" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FINDINGS"
+label_settings = SubResource("LabelSettings_8v8o5")
+horizontal_alignment = 1
+
+[node name="CardDisplayText" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_2yvjv")]
+unique_name_in_owner = true
+position = Vector2(204, 147)
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+columns = 4
+
+[node name="HBoxContainerChars" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "BACK"
+
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_button_focus"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_button_focus"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_close_button_pressed"]

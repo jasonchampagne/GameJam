@@ -1,0 +1,156 @@
+keys,en,fr,sp
+SUBTITLE,"This is not the end. This is the beginning.","Ce n’est pas la fin. C’est le début.","Esto no es el final. Esto es el comienzo."
+NEW_GAME,"New Game","Nouvel Partie","Nuevo Juego"
+LOAD_GAME,"Load Game","Charger Partie","Cargar Partida"
+RESUME,"Resume","Reprendre","Reanudar"
+OPTIONS,"Options","Options","Opciones"
+QUIT,"Quit","Quitter","Salir"
+SAVE,"Save","Sauvegarder","Guardar"
+SAVE_AND_EXIT,"Save and Exit","Sauvegarder et Quitter","Guardar y Salir"
+LOAD,"Load","Charger","Cargar"
+DELETE,"Delete","Supprimer","Eliminar"
+DELETE_SAVE,"Delete Save","Supprimer Sauvegarde","Eliminar Guardado"
+CONTINUE,"Continue","Continue","Continuar"
+CREDITS,"Credits","Crédits","Créditos"
+EXIT,"Exit","Sortir","Salir"
+BACK,"Back","Retour","Atrás"
+CHOOSE_CHARACTER,"Choose Character","Choisis ton personnage","Elige tu personaje"
+CARDS_COLLECTION,"Cards Collection","Collection de cartes","Colección de cartas"
+FINDINGS,"Findings","Découvertes","Hallazgos"
+SHOP,"Shop","Boutique","Tienda"
+ANOTHER_HAND,"Another Hand","Autre Main","Otra Mano"
+VALIDATE_THE_HAND,"Validate the Hand","Valider la main","Validar la mano"
+GENERATE,"Generate","Generation","Generar"
+SOLVE,"Solve","Résoudre","Resolver"
+
+___ MAIN MENU,,,
+
+Title,Title,Titre,Título
+Subtitle,Subtitle,Sous-titre,Subtítulo
+Play,Play,Jouer,Jugar
+Options,Options,Options,Opciones
+Credits,Credits,Crédits,Créditos
+Exit,Exit,Quitter,Salir
+
+___ LOADING SCREEN,,,
+Loading...,Loading...,Chargement...,Cargando...
+Loading Level...,Loading Level...,Chargement du niveau...,Cargando nivel...
+Still Loading Level...,Still Loading Level...,Chargement du niveau...,Cargando nivel...
+Still Loading Level... (%d seconds),Still Loading Level... (%d seconds),Chargement du niveau... (%d secondes),Cargando nivel... (%d segundos)
+Loading Level Complete!,Loading Level Complete!,Chargement du niveau terminé !,Carga de nivel completa !
+Any Moment Now...,Any Moment Now...,Chargement imminent...,Cualquier momento ahora...
+Any Moment Now... (%d seconds) ,Any Moment Now... (%d seconds),Chargement imminent... (%d secondes),Cualquier momento ahora... (%d segundos)
+
+Loading Complete!,Loading Complete!,Chargement terminé !,Carga completa !
+
+___ DIALOGS IN GAME,,,
+
+You lose.,You lose.,Vous avez perdu.,Perdiste.
+You won!,You won!,Vous avez gagné !,¡Ganaste!
+Thanks for playing!,Thanks for playing!,Merci d'avoir joué !,¡Gracias por jugar!
+
+Pause,Pause,Pause,Pausa
+Exit Game,Exit Game,Quitter le jeu,Salir del juego
+Main Menu,Main Menu,Menu principal,Menú principal
+Options,Options,Options,Opciones
+Resume,Resume,Reprendre,Reanudar
+Restart,Restart,Recommencer,Reiniciar
+Continue,Continue,Continuer,Continuar
+Menu,Menu,Menu,Menú
+
+Please Confirm...,Please Confirm...,Veuillez confirmer...,Por favor confirma...
+Go back to main menu?,Go back to main menu?,Retourner au menu principal ?,¿Volver al menú principal?
+Quit the game?,Quit the game?,Quitter le jeu ?,¿Salir del juego?
+Cancel,Cancel,Annuler,Cancelar
+OK,OK,OK,OK
+
+___ OPTIONS MENU,,,
+
+Controls,Controls,Contrôles,Controles
+Mouse Sensitivity :,Mouse Sensitivity :,Sensibilité souris :,Sensibilidad del ratón :
+Actions & Inputs,Actions & Inputs,Actions et contrôles,Acciones e entradas
+Add,Add,Ajouter,Añadir
+Remove,Remove,Enlever,Eliminar
+Assign Key for {action},Assign Key for {action},Choisir le contrôle pour {action},Asignar tecla para {action}
+Listening for input...,Listening for input...,Appuyez sur un bouton...,Escuchando entrada...
+Press again to confirm...,Press again to confirm...,Appuyez encore pour confirmer...,Presiona de nuevo para confirmar...
+Focus here to assign inputs.,Focus here to assign inputs.,Mettez le focus ici pour choisir le contrôle.,Enfoca aquí para asignar entradas.
+Already Assigned,Already Assigned,Déjà utilisé,Ya asignado
+{key} already assigned to {action}.,{key} already assigned to {action}.,{key} est déjà utilisé pour {action}.,{key} ya está asignado a {action}.
+Remove Key for {action},Remove Key for {action},Supprimer le contrôle pour {action},Eliminar tecla para {action}
+Are you sure you want to remove {key} from {action}?,Are you sure you want to remove {key} from {action}?,Êtes-vous sûr de vouloir supprimer {key} pour {action} ?,¿Estás seguro de que quieres eliminar {key} de {action}?
+Reset,Reset,Réinitialiser,Reiniciar
+
+Audio,Audio,Audio,Audio
+Master :,"Master :","Principal :"," Principal :"
+Music :,"Music :","Musique :","Musica :"
+SFX :,"SFX :","Effets :",   "SFX :"
+Mute :,"Mute :","Silencieux :","Silencio :"
+
+Video,Video,Vidéo,Video
+Fullscreen :,Fullscreen :,Plein écran :,Pantalla completa :
+Resolution :,Resolution :,Résolution :,Resolución :
+Anti-Aliasing :,Anti-Aliasing :,Anticrénelage :,Anti-Aliasing :
+Disabled (Fastest),Disabled (Fastest),Désactivé (Plus rapide),Desactivado (Más rápido)
+8x (Slowest),8x (Slowest),8x (Plus lent),8x (Más lento)
+Camera Shake :,Camera Shake :,Secousse Caméra :,Sacudida de cámara :
+Normal,Normal,Normale,Normal
+Reduced,Reduced,Réduite,Reducida
+Minimal,Minimal,Minimum,Mínima
+None,None,Aucune,Ninguna
+
+Game,Game,Jeu,Juego
+Reset Game :,Reset Game :,Réinitialiser le jeu :,Reiniciar juego :
+Do you want to reset your game data?,Do you want to reset your game data?,Voulez-vous réinitialiser votre partie ?,¿Quieres reiniciar los datos de tu juego?
+
+Back,Back,Retour,Atrás
+
+___ SHOP ,,,
+Buy,Buy,Acheter,Comprar
+Next Level,Next Level,Niveau suivant,Nivel siguiente 
+Cost,Cost,Coût,Coste
+Have,Have,Avoir,Tener
+___ UI CARS ,,,
+Score,Score,Score,Puntuación
+Hands Number,Hands Number,Nombre de mains,Número de manos
+Free Slots,"Free Slots","Emplacements libres","Espacios libres"
+Amplificators,Amplificators,Amplificateurs,Amplificadores
+Help,Help,Aide,Ayuda
+HELP_CONTENT,"1. Choose the character's direction\n2. Choose the card\n3. Repeat until no slots remain\n3b. Space to rollback card\n4. Validate your hand\n5. Repeat","1. Choisis la direction du personnage\n2. Choisis la carte\n3. Recommence jusqu'à ne plus avoir de slot\n3b. Espace pour annuler la carte\n4. Valide ta main\n5. Recommence","1. Elige la dirección del personaje\n2. Elige la carta\n3. Repite hasta que no queden espacios\n3b. Espacio para deshacer la carta\n4. Valida tu mano\n5. Repite"
+___ CARDS TITLE,,,
+UnknownCard,Unknown Card,Carte inconnue,Carta desconocida
+Move,Move,Déplacer,Mover
+Move2x,Move2x,Déplacer 2x,Mover 2x
+Bomb,Bomb,Bombe,Bomba
+Gatling,Gatling,Gatling,Gatling
+TurnMaze,TurnMaze,Tourner le labyrinthe,Girar el laberinto
+EnchantMaze,EnchantMaze,Enchanter le labyrinthe,Encantar el laberinto
+Ampli2x,Ampli2x,Amplifier 2x,Amplificar 2x
+Score2x,Score2x,Score 2x,Score 2x
+CatchPointAround,CatchPointsAround,Attraper des points autour,Recoger puntos alrededor
+Player2x,Player2x,Joueur 2x,Jugador 2x
+
+___ CARDS DESC,,,
+UnknownCard_desc,"Card not discovered yet.","Carte non encore découverte.","Carta no descubierta aún."
+Move_desc,"Moves the character by one tile.","Déplace le personnage d'une case.","Mueve el personaje una casilla."
+Move2x_desc,"Moves the character by two tiles.","Déplace le personnage de deux cases.","Mueve el personaje dos casillas."
+Bomb_desc,"Destroys wall tiles around the character.","Détruit les cases mur autour du personnage.","Destruye las casillas de muro alrededor del personaje."
+Gatling_desc,"Destroys wall tiles randomly in the labyrinth.","Détruit les cases mur aléatoirement dans les labyrinthe.","Destruye casillas de muro aleatoriamente en el laberinto."
+TurnMaze_desc,"Rotates the labyrinth a quarter turn to the left.","Fait pivoter le labyrinthe d'un quart de tour vers la gauche.","Gira el laberinto un cuarto de vuelta a la izquierda."
+EnchantMaze_desc,"Multiplies the value of certain tiles in the labyrinth.","Multiplie la valeur de certaine case du labyrinthe.","Multiplica el valor de ciertas casillas del laberinto."
+Ampli2x_desc,"Doubles the value of the next card.","Double la valeur de la prochaine carte.","Duplica el valor de la siguiente carta."
+Score2x_desc,"Doubles the score.","Double le score.","Duplica la puntuación."
+CatchPointAround_desc,"Collects all points around the character.","Récupère tous les points autour du personnage.","Recoge todos los puntos alrededor del personaje."
+Player2x_desc,"Doubles the player's abilities.","Double les capacités du joueur.","Duplica las habilidades del jugador."
+
+
+___ CHARARCTER DESC,,,
+Melissa_title,"The Roller Queen","La Reine du Roller","La Reina del Patín"
+Heather_title,"The Rebel Hacker","La Hacker Rebelle","La Hacker Rebelde"
+Jason_title,"The Impossible Driver","Le Pilote de l’Impossible","El Piloto Imposible"
+Michael_title,"The Silent Hunter","Le Chasseur Silencieux","El Cazador Silencioso"
+
+Melissa_desc,"Melissa types faster than she talks. At 17, she has already hacked the networks of half a dozen megacorps. When a strange line of code sucks her into a world of moving neon, she quickly realizes: this is not a game. In the Neon Labyrinth, her reflexes and sharp mind are her only weapons to find the NeonPulse artifacts and outsmart the hostile programs lurking around.","Melissa tape plus vite qu’elle ne parle. À 17 ans, elle a déjà piraté les réseaux d’une demi-douzaine de mégacorps. Quand une ligne de code étrange l’aspire dans un monde de néons mouvants, elle comprend vite : ce n’est pas un jeu. Dans le Neon Labyrinth, ses réflexes et son esprit acéré sont ses seules armes pour trouver les artefacts NeonPulse et déjouer les programmes hostiles qui rôdent."," Melissa escribe más rápido de lo que habla. A los 17 años, ya ha pirateado las redes de media docena de megacorporaciones. Cuando una extraña línea de código la absorbe a un mundo de neón en movimiento, se da cuenta rápidamente: esto no es un juego. En el Neon Labyrinth, sus reflejos y su mente aguda son sus únicas armas para encontrar los artefactos NeonPulse y superar los programas hostiles que acechan."
+Heather_desc,"Heather, with her chrome roller skates and bandana, has never backed down from a challenge. Queen of the tracks and arcades, she is propelled into the Neon Labyrinth, a flashing universe where time seems frozen in 1984. Her goal? To glide at full speed between digital traps to collect the legendary NeonPulse. She doesn't play for glory. She plays for survival.","Heather, avec ses patins à roulettes chromés et son bandana, n’a jamais reculé devant un défi. Reine des pistes et des salles d’arcade, elle est propulsée dans le Neon Labyrinth, un univers clignotant où le temps semble figé sur 1984. Son objectif ? Glisser à toute vitesse entre les pièges digitaux pour collecter les légendaires NeonPulse. Elle ne joue pas pour la gloire. Elle joue pour la survie.","Heather, con sus patines de ruedas cromados y su bandana, nunca ha retrocedido ante un desafío. Reina de las pistas y las salas de juegos, es impulsada al Neon Labyrinth, un universo parpadeante donde el tiempo parece congelado en 1984. ¿Su objetivo? Deslizarse a toda velocidad entre trampas digitales para recoger los legendarios NeonPulse. No juega por la gloria. Juega por la supervivencia."
+Jason_desc,"Jason drove cars before he could walk. A local legend of illegal circuits, he wakes up in a labyrinth with phosphorescent walls, engine down, heart at 1000 an hour. Here, no steering wheel. Just his speed, his fists... and his instinct. The Neon Labyrinth is a mental racetrack, and Jason intends to take the lead by picking up every NeonPulse in his path.","Jason conduisait des bolides avant même de savoir marcher. Légende locale des circuits illégaux, il se réveille dans un labyrinthe aux murs phosphorescents, moteur en panne, cœur à 1000 à l’heure. Ici, pas de volant. Juste sa vitesse, ses poings… et son instinct. Le Neon Labyrinth est un terrain de course mental, et Jason compte bien prendre la tête en ramassant chaque NeonPulse sur sa route.","Jason conducía coches antes de poder caminar. Leyenda local de circuitos ilegales, se despierta en un laberinto con paredes fosforescentes, motor averiado, corazón a 1000 por hora. Aquí no hay volante. Solo su velocidad, sus puños... y su instinto. El Neon Labyrinth es una pista de carreras mental, y Jason tiene la intención de tomar la delantera recogiendo cada NeonPulse en su camino."
+Michael_desc,"Michael never speaks. Some say he was a secret agent, others that he was never human. But when the Neon Labyrinth opens, he is already inside, walking the glowing corridors as if he already knows them. The NeonPulse shine like hearts in the night. And Michael hunts them. One by one. Without a sound.","Michael ne parle jamais. Certains disent qu’il était agent secret, d’autres qu’il n’a jamais été humain. Mais quand le Neon Labyrinth s’ouvre, il est déjà à l’intérieur, marchant entre les couloirs lumineux comme s’il les connaissait déjà. Les NeonPulse brillent comme des cœurs dans la nuit. Et Michael les traque. Un par un. Sans faire de bruit.","Michael nunca habla. Algunos dicen que fue un agente secreto, otros que nunca fue humano. Pero cuando el Neon Labyrinth se abre, él ya está dentro, caminando por los pasillos brillantes como si ya los conociera. Los NeonPulse brillan como corazones en la noche. Y Michael los caza. Uno por uno. Sin hacer ruido."

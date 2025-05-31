@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://wbxagr5y74ie"]
+
+[ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://addons/maaacks_game_template/base/scenes/credits/credits.tscn" id="1_8n0nl"]
+[ext_resource type="Script" uid="uid://c13t2wgq10eyb" path="res://scenes/credits/credits.gd" id="2_c8xcy"]
+
+[node name="Credits" instance=ExtResource("1_8n0nl")]
+script = ExtResource("2_c8xcy")
+attribution_file_path = "res://ATTRIBUTION.md"
+
+[node name="HeaderSpace" parent="ScrollContainer/VBoxContainer" index="0"]
+custom_minimum_size = Vector2(0, 648)
+
+[node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(1152, 0)
+text = "[center][font_size=48]Collaborators[/font_size]
+
+[font_size=32]Role[/font_size]
+[font_size=24]Main developer [/font_size]
+Lyrz
+[url=https://itch.io/profile/lyrz3]Person w/ Link[/url]
+
+
+[font_size=48]Tools[/font_size]
+[font_size=24]Godot[/font_size]
+Author: [url=https://godotengine.org/contact]Juan Linietsky, Ariel Manzur, and contributors[/url]  
+Source: [url=https://godotengine.org/]godotengine.org[/url]  
+License: [url=https://github.com/godotengine/godot/blob/master/LICENSE.txt]MIT License[/url] 
+
+[font_size=24]Git[/font_size]
+Author: [url=https://github.com/torvalds]Linus Torvalds[/url]  
+Source: [url=https://git-scm.com/downloads]git-scm.com[/url]  
+License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url]
+
+[font_size=24]Godot Game Template[/font_size]
+Author: [url=https://github.com/Maaack/Godot-Game-Template/graphs/contributors]Marek Belski and contributors[/url]  
+Source: [url=https://github.com/Maaack/Godot-Game-Template]github: Godot-Game-Template[/url]  
+License: [url=LICENSE.txt]MIT License[/url]  
+
+[font_size=24]GUT[/font_size]
+Author: [url=https://github.com/bitwes/Gut/graphs/contributors]Butch Wesley and contributors[/url]  
+Source: [url=https://github.com/bitwes/Gut]github: GU[/url]
+License: [url=LICENSE.txt]MIT License[/url]
+
+[font_size=24]GUT Visual Code Extesion[/font_size]
+Author: [url=https://github.com/bitwes/gut-extension/graphs/contributors]Butch Wesley and contributors[/url]  
+Source: [url=https://github.com/bitwes/gut-extension]github: GU[/url]
+License: [url=LICENSE.txt]MIT License[/url]
+
+[font_size=24]Simple CardPileUI[/font_size]
+Author: [url=https://github.com/mathrick/godot-simple-card-pile-ui/graphs/contributors]Maciej Katafiasz and contributors[/url]  
+Source: [url=https://github.com/mathrick/godot-simple-card-pile-ui]github: Simple CardPileUI[/url]
+License: [url=LICENSE.txt]MIT License[/url]
+
+[font_size=24]Template[/font_size]
+Author: [url=https://github.com/Maaack/Godot-Game-Template/graphs/contributors]Maciej Katafiasz and contributors[/url]  
+Source: [url=https://github.com/Maaack/Godot-Game-Template]github: Godot-Game-Template[/url]
+License: [url=LICENSE.txt]MIT License[/url]
+
+[font_size=32]Sprites :[/font_size]
+Author: [url=https://opengameart.org/users/fleurman]fleurman[/url]  
+Source: [url=https://opengameart.org/content/tiny-characters-set]github: Simple CardPileUI[/url]
+
+[font_size=48]Sound[/font_size]
+[font_size=32]SFX[/font_size]
+Source: [url=https://lasonotheque.org/]lasonotheque.org[/url]
+[/center]"
+
+[node name="FooterSpace" parent="ScrollContainer/VBoxContainer" index="2"]
+custom_minimum_size = Vector2(0, 648)

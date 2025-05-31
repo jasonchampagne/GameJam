@@ -1,0 +1,212 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxvsdfouepix3"]
+
+[ext_resource type="TileSet" uid="uid://dvwds6lttxwr5" path="res://assets/tiles/new_tile_set.tres" id="1_5ipb8"]
+[ext_resource type="PackedScene" uid="uid://dgd6ydk6ets8d" path="res://scenes/game_scene/componants/player.tscn" id="3_1b7vb"]
+
+[sub_resource type="GDScript" id="GDScript_lsiky"]
+script/source = "class_name LevelMaze extends Node2D
+
+signal level_finished
+
+const INITIAL_WIDTH: int = 4
+const INITIAL_HEIGHT: int = 4
+
+@export var cell_size: Vector2i = Vector2i(Globals.TILE_SIZE, Globals.TILE_SIZE)
+
+var start: CaseMaze
+
+var _current_point_label: Array[Label] = []
+var _solutions: Array[Array] = []
+var _grid_maze: GridCaseMaze = GridCaseMaze.new(INITIAL_WIDTH, INITIAL_HEIGHT)
+@onready var tilemap: TileMapLayer = %TileMapLayer
+@onready var player: PlayerSprite = %Player
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	player.custom_connect(self)
+	generate_maze()
+	generate_solution()
+	#self.level_finished.connect(_stage.level_finished.bind())
+	#LibOptimize.remove_interact(self)
+
+
+func generate_maze() -> void:
+	var engine = GrowingTree.new(_grid_maze)
+	#seed(3297551004)
+	#engine.generate_maze(3297551004, 0.1)
+	engine.generate_maze(randi(),0.1)
+	#engine.generate_maze(0,Globals.POURCENTAGE_BACKTRACK)
+	self.start = _grid_maze.generate_start()
+	_display_maze()
+	var local_pos = tilemap.map_to_local(self.start.get_position())
+	player.global_position = tilemap.to_global(local_pos)
+	_grid_maze.set_player_position(self.start.get_position())
+	# display the start
+
+
+func _display_solution() -> void:
+	if _solutions.size() < 1:
+		print_debug(\"pas de solution\")
+		return
+	for sol in _solutions:
+		for case in sol:
+			tilemap.set_cell(case, 0, Globals.DISPLAY_CASE[Globals.TypeCaseDetails.CASESOLUTION], 0)
+		print_debug(\"solution size \", sol.size())
+
+
+func update_maze(result_card: ResultActionCard) -> void:
+	self._display_maze()
+	var lib_effects: libEffects = libEffects.new()
+	lib_effects.control(result_card, tilemap)
+	if result_card.sound != \"\":
+		if !$AudioStreamPlayer2D.is_playing():
+			$AudioStreamPlayer2D.stream = load(Globals.PATH_CARD_SOUND_EFFETS + result_card.sound)
+			$AudioStreamPlayer2D.play()
+	# refind solution
+	generate_solution()
+	_write_traces()
+
+
+func _display_maze() -> void:
+	self._remove_all_point_labels()
+	for row in range(_grid_maze.get_weight()):
+		for col in range(_grid_maze.get_hight()):
+			var target: Vector2i = Vector2i(row, col)
+			if _grid_maze.get_type_case(row, col) == Globals.TypeCase.CASEMUR:
+				tilemap.set_cell(
+					target, 0, Globals.DISPLAY_CASE[_grid_maze.get_type_case_details(row, col)], 0
+				)
+			else:
+				tilemap.set_cell(
+					target, 0, Globals.DISPLAY_CASE[_grid_maze.get_type_case_details(row, col)], 0
+				)
+				_add_point_to_case(target)
+	# display end
+	tilemap.set_cell(_grid_maze.get_end(), 0, Globals.CELL_CASEEND, 0)
+
+
+func _add_point_to_case(target: Vector2i) -> void:
+	if target != start.get_position():
+		var position_text: Vector2 = tilemap.map_to_local(target)
+		var label: Label = libEffects.add_label(
+			tilemap,
+			position_text,
+			str(_grid_maze.get_point_case(target.x, target.y)),
+			Globals.TILE_SIZE
+		)
+		_current_point_label.append(label)
+
+
+func _remove_point_to_case(target: Vector2i) -> void:
+	if target != start.get_position():
+		var position_text: Vector2 = tilemap.map_to_local(target)
+		var label: Label = libEffects.remove_label(tilemap, position_text)
+		var idx: int = _current_point_label.find(label)
+		_current_point_label.remove_at(idx)
+
+
+func _remove_all_point_labels() -> void:
+	while _current_point_label.size() > 0:
+		tilemap.remove_child(_current_point_label.pop_back())
+
+
+func generate_solution() -> void:
+	var solver = ShortestPath.new(self.start.get_position(), _grid_maze)
+	_solutions = solver.generate_solution()
+	#print_debug('point solution: ',solver.calculate_point_solution(_solutions[0]))
+	return
+
+
+func _write_traces() -> void:
+	##var dirs: Array[String] = _stage._core_engine.get_all_moves()
+	#var current_position: Vector2i = self.start.get_position()
+	#var last_move: String = \"\"
+	#if dirs.size() > 0:
+	#last_move = dirs[0]
+	#for current_move in dirs:
+	#_write_trace(current_move, current_position, last_move)
+	#current_position = current_position + Globals.INPUTS_I[current_move]
+	#last_move = current_move
+	print_debug(\"to go\")
+
+
+func _write_trace(current_move: String, last_position: Vector2i, last_move: String) -> void:
+	# remove the label point
+	_remove_point_to_case(last_position)
+	# start the trace on the correct way
+	if last_position == self.start.get_position():
+		tilemap.set_cell(last_position, 0, Globals.CELL_CASETRACE_START, 0)
+
+		#prolongate the trace
+
+		# Turn
+
+		# we come from top or bottom
+
+		#libEffects.pulse_tile(tilemap,last_position)
+	else:
+		#prolongate the trace
+		var transform_flags: int = 0
+		var case_to_set: Vector2i = Globals.CELL_CASETRACE
+		# Turn
+		if last_move != current_move:
+			case_to_set = Globals.CELL_CASETRACE_TURN
+			# we come from top or bottom
+			if (
+				Vector2.UP == Globals.INPUTS[current_move]
+				|| Vector2.RIGHT == Globals.INPUTS[current_move]
+			):
+				#transform_flags = TileSetAtlasSource.TRANSFORM_FLIP_V
+				pass
+		elif (
+			Vector2.RIGHT == Globals.INPUTS[current_move]
+			|| Vector2.LEFT == Globals.INPUTS[current_move]
+		):
+			transform_flags = TileSetAtlasSource.TRANSFORM_TRANSPOSE
+
+		tilemap.set_cell(last_position, 0, case_to_set, transform_flags)
+		#libEffects.pulse_tile(tilemap,last_position)
+
+
+func move_player(moves: Array[String], forward: bool = false) -> void:
+	#verify if the move is not outside the maze
+	for dir in moves:
+		var target_grid: Vector2i = tilemap.local_to_map(
+			player.position + Globals.INPUTS[dir] * Globals.TILE_SIZE
+		)
+		await player.move(dir, forward)
+		# For display reason we wait end player move
+		if forward:
+			_add_point_to_case(target_grid)
+		_grid_maze.set_player_position(target_grid)
+		if target_grid == _grid_maze._end:
+			level_finished.emit()
+	_write_traces()
+
+
+func _on_player_one_step(target: Vector2i, forward: bool = false) -> void:
+	var target_grid: Vector2i = tilemap.local_to_map(target)
+	if !forward:
+		pass
+		#card_pile_ui.get_card_in_pile_at(CardPileUI.Piles.hand_pile, 0)
+	else:
+		#remove trace
+		#TODO add old state of the case
+		tilemap.set_cell(target_grid, 0, Globals.CELL_CASEEMPTY, 0)
+"
+
+[node name="Level" type="Node2D"]
+script = SubResource("GDScript_lsiky")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
+tile_set = ExtResource("1_5ipb8")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("3_1b7vb")]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2, 2)

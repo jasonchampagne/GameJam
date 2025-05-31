@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2826aci101h8"]
+
+[ext_resource type="PackedScene" uid="uid://cikf3o5omnunl" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/menus/mini_options_overlaid_menu.tscn" id="1_rylko"]
+
+[node name="MiniOptionsOverlaidMenu" instance=ExtResource("1_rylko")]
+
+[node name="TitleLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/TitleMargin" index="0"]
+text = "Help"
+
+[node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
+visible = false
+
+[node name="MenuContainer" parent="MenuPanelContainer/MarginContainer/BoxContainer" index="2"]
+visible = false
+
+[node name="MenuContainerTrue" type="MarginContainer" parent="MenuPanelContainer/MarginContainer/BoxContainer" index="3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuContainerTrue" index="0"]
+layout_mode = 2
+text = "HELP_CONTENT"

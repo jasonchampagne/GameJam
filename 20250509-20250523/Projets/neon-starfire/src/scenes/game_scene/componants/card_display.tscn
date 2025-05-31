@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://jcumulgimhe2"]
+
+[ext_resource type="Script" uid="uid://bm2r7q373rqmf" path="res://scenes/game_scene/componants/card_display.gd" id="1_xscyp"]
+[ext_resource type="FontFile" uid="uid://cnk30d62whfwu" path="res://assets/fonts/AtariClassic-gry3.ttf" id="2_lffli"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_807ag"]
+font = ExtResource("2_lffli")
+font_size = 20
+font_color = Color(1, 0.180392, 0.92549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_10oyc"]
+font = ExtResource("2_lffli")
+font_size = 18
+font_color = Color(0.631373, 0, 1, 1)
+
+[node name="CardDisplayText" type="Node2D"]
+script = ExtResource("1_xscyp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = -24.0
+offset_right = 167.5
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CardDescTitle" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 16)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_807ag")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="CardDescContent" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 180)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_10oyc")
+autowrap_mode = 2

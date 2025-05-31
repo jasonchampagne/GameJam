@@ -1,0 +1,111 @@
+[gd_scene load_steps=9 format=3 uid="uid://cc4vyuhfdcuv1"]
+
+[ext_resource type="Script" uid="uid://dm7rdsbp4vn1r" path="res://scenes/game_scene/select_shars.gd" id="1_420mw"]
+[ext_resource type="AudioStream" uid="uid://d2s8nlfeclfch" path="res://assets/sounds/musics/menu.mp3" id="2_o36n5"]
+[ext_resource type="AudioStream" uid="uid://ulufcasymmm0" path="res://assets/sounds/ui/FUI Ease Into Position.wav" id="3_yuweg"]
+[ext_resource type="AudioStream" uid="uid://bhxh5bl6jdck0" path="res://assets/sounds/ui/FUI Navigation Swipe-2.wav" id="4_auhv8"]
+[ext_resource type="FontFile" uid="uid://cnk30d62whfwu" path="res://assets/fonts/AtariClassic-gry3.ttf" id="5_nb0vn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_il07t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hsaqj"]
+font = ExtResource("5_nb0vn")
+font_size = 20
+font_color = Color(1, 0.180392, 0.92549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qmnex"]
+font = ExtResource("5_nb0vn")
+font_size = 18
+
+[node name="SelectCharacters" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_420mw")
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_o36n5")
+bus = &"Music"
+
+[node name="ButtonFocusSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_yuweg")
+bus = &"SFX"
+
+[node name="ButtonClickSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_auhv8")
+bus = &"SFX"
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 5
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="InputDisplayLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CHOOSE_CHARACTER"
+label_settings = SubResource("LabelSettings_il07t")
+horizontal_alignment = 1
+
+[node name="HBoxContainerChars" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CharTitle" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_hsaqj")
+
+[node name="CharDesc" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_qmnex")
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "BACK"
+
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_button_focus"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_button_focus"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_tutorial_button_pressed"]

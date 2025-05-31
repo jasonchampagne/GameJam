@@ -1,0 +1,277 @@
+[gd_scene load_steps=16 format=3 uid="uid://cyuctlndfpr7d"]
+
+[ext_resource type="Script" uid="uid://buwa77kqhy3h4" path="res://scenes/game_scene/componants/ui_cards.gd" id="1_j70wm"]
+[ext_resource type="Shader" uid="uid://baa3f3sd6iuxk" path="res://assets/effects/shaders/neon_shader_material.gdshader" id="2_oydut"]
+[ext_resource type="Shader" uid="uid://dv10520rj7off" path="res://assets/effects/shaders/rewind_tape.gdshader" id="2_q8gga"]
+[ext_resource type="Script" uid="uid://d4hqpfoepqvlk" path="res://scripts/cards/line_card_pile_ui.gd" id="2_w03x3"]
+[ext_resource type="FontFile" uid="uid://d1d86eifdvdw5" path="res://assets/fonts/NeonSans.ttf" id="3_ar0o2"]
+[ext_resource type="AudioStream" uid="uid://drhak3l3keeiv" path="res://assets/sounds/moves/COMAv_Cassette audio retour musique 7 (ID 2173)_LS.wav" id="3_drl37"]
+[ext_resource type="PackedScene" uid="uid://cec5254g6oe2f" path="res://scenes/game_scene/componants/lines_card_ui.tscn" id="3_w03x3"]
+[ext_resource type="Texture2D" uid="uid://b5gn7g5ojp8be" path="res://assets/cards/1x1_#ffffffff.png" id="9_drl37"]
+[ext_resource type="PackedScene" uid="uid://jcumulgimhe2" path="res://scenes/game_scene/componants/card_display.tscn" id="9_s5uvj"]
+[ext_resource type="AudioStream" uid="uid://ulufcasymmm0" path="res://assets/sounds/ui/FUI Ease Into Position.wav" id="9_t5u8m"]
+[ext_resource type="AudioStream" uid="uid://bhxh5bl6jdck0" path="res://assets/sounds/ui/FUI Navigation Swipe-2.wav" id="10_s5uvj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t5u8m"]
+shader = ExtResource("2_q8gga")
+shader_parameter/curvature = 2.0
+shader_parameter/skip = 1.0
+shader_parameter/image_flicker = 1.0
+shader_parameter/vignette_flicker_speed = 1.0
+shader_parameter/vignette_strength = 1.0
+shader_parameter/small_scanlines_speed = 1.0
+shader_parameter/small_scanlines_proximity = 1.0
+shader_parameter/small_scanlines_opacity = 1.0
+shader_parameter/scanlines_opacity = 1.0
+shader_parameter/scanlines_speed = 1.0
+shader_parameter/scanline_thickness = 0.5
+shader_parameter/scanlines_spacing = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q8gga"]
+shader = ExtResource("2_oydut")
+shader_parameter/shine_color = Color(1, 0.180392, 0.92549, 1)
+shader_parameter/alpha_limit = 0.2
+shader_parameter/cycle_speed = 1.0
+shader_parameter/full_pulse_cycle = true
+shader_parameter/mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_drl37"]
+font = ExtResource("3_ar0o2")
+font_size = 60
+font_color = Color(0.631373, 0, 1, 1)
+
+[sub_resource type="GDScript" id="GDScript_58wxl"]
+script/source = "class_name CardDropzoneLine extends CardDropzone
+
+
+func add_card_to_dropzone(card: CardUI) -> bool:
+	if !drop_zone_full():
+		card_pile_ui._maybe_remove_card_from_any_piles(card)
+		card_pile_ui._maybe_remove_card_from_any_dropzones(card)
+		add_card(card)
+		card_pile_ui.emit_signal(\"card_added_to_dropzone\", self, card)
+		card_pile_ui.reset_target_positions()
+		return true
+	return false
+
+
+func _update_target_positions():
+	for i in _held_cards.size():
+		var card_ui = _held_cards[i]
+		var target_pos = position
+
+		# Ajouter un décalage horizontal basé sur la largeur de la carte
+		var horizontal_offset = card_ui.size.x * 0.5
+
+		if layout == CardPileUI.PilesCardLayouts.up:
+			if i <= max_stack_display:
+				target_pos.y -= i * stack_display_gap
+			else:
+				target_pos.y -= stack_display_gap * max_stack_display
+		elif layout == CardPileUI.PilesCardLayouts.down:
+			if i <= max_stack_display:
+				target_pos.y += i * stack_display_gap
+			else:
+				target_pos.y += stack_display_gap * max_stack_display
+		elif layout == CardPileUI.PilesCardLayouts.right:
+			# Utiliser le décalage horizontal pour éviter le recouvrement
+			target_pos.x += i * horizontal_offset
+		elif layout == CardPileUI.PilesCardLayouts.left:
+			# Utiliser le décalage horizontal pour éviter le recouvrement
+			target_pos.x -= i * horizontal_offset
+
+		# Définir la direction de la carte
+		if card_ui_face_up:
+			card_ui.set_direction(Vector2.UP)
+		else:
+			card_ui.set_direction(Vector2.DOWN)
+
+		# Ajuster l'ordre d'affichage (z_index)
+		if card_ui.is_clicked:
+			card_ui.z_index = 3000 + i
+		else:
+			card_ui.z_index = i
+
+		# Déplacer la carte et mettre à jour sa position cible
+		card_ui.move_to_front()  # Doit être fait pour gérer l'ordre d'interaction
+		card_ui.target_position = target_pos
+
+
+func drop_zone_full() -> bool:
+	return !get_total_held_cards() < max_stack_display
+
+
+func card_ui_dropped(card_ui):
+	card_pile_ui.set_card_pile(card_ui, CardPileUI.Piles.discard_pile)
+	print_debug(\"drop\")
+"
+
+[node name="UICards" type="CanvasLayer"]
+script = ExtResource("1_j70wm")
+
+[node name="CanvasLayerEffect" type="CanvasLayer" parent="."]
+
+[node name="Effect" type="CanvasLayer" parent="CanvasLayerEffect"]
+unique_name_in_owner = true
+layer = 2
+
+[node name="Rewind" type="ColorRect" parent="CanvasLayerEffect/Effect"]
+visible = false
+material = SubResource("ShaderMaterial_t5u8m")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RewindSound" type="AudioStreamPlayer" parent="CanvasLayerEffect/Effect"]
+unique_name_in_owner = true
+stream = ExtResource("3_drl37")
+bus = &"SFX"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Score" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_q8gga")
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_drl37")
+
+[node name="HandsNumbers" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_q8gga")
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+text = "Hands Number: 0"
+label_settings = SubResource("LabelSettings_drl37")
+
+[node name="FreeSlots" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_q8gga")
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+text = "Free Slot: 0"
+label_settings = SubResource("LabelSettings_drl37")
+
+[node name="Amplis" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_q8gga")
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+text = "Amplificators: 0"
+label_settings = SubResource("LabelSettings_drl37")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="AnotherHand" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "ANOTHER_HAND"
+
+[node name="ValidateHand" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "VALIDATE_THE_HAND"
+
+[node name="CardDisplayText" parent="VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("9_s5uvj")]
+unique_name_in_owner = true
+position = Vector2(57, 111)
+
+[node name="CardDropzoneAmpli" type="Control" parent="VBoxContainer/HBoxContainer" node_paths=PackedStringArray("card_pile_ui")]
+custom_minimum_size = Vector2(168, 240)
+layout_mode = 2
+script = SubResource("GDScript_58wxl")
+card_pile_ui = NodePath("../../HBoxContainer2/LinesCardPileUI")
+metadata/_custom_type_script = "uid://dw8ik5iqaupvn"
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/CardDropzoneAmpli"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_drl37")
+
+[node name="CardInProgress" type="Control" parent="VBoxContainer/HBoxContainer" node_paths=PackedStringArray("card_pile_ui")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(168, 240)
+layout_mode = 2
+script = SubResource("GDScript_58wxl")
+card_pile_ui = NodePath("../../HBoxContainer2/LinesCardPileUI")
+layout = 2
+metadata/_custom_type_script = "uid://dw8ik5iqaupvn"
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/CardInProgress"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_drl37")
+
+[node name="CardDropzone" type="Control" parent="VBoxContainer/HBoxContainer" node_paths=PackedStringArray("card_pile_ui")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(168, 240)
+layout_mode = 2
+script = SubResource("GDScript_58wxl")
+card_pile_ui = NodePath("../../HBoxContainer2/LinesCardPileUI")
+layout = 2
+metadata/_custom_type_script = "uid://dw8ik5iqaupvn"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/CardDropzone"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_drl37")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="LinesCardPileUI" type="Control" parent="VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_w03x3")
+extended_card_ui = ExtResource("3_w03x3")
+metadata/_custom_type_script = "uid://d4hqpfoepqvlk"
+
+[node name="ButtonFocusSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("9_t5u8m")
+bus = &"SFX"
+
+[node name="ButtonClickSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_s5uvj")
+bus = &"SFX"
+
+[connection signal="focus_entered" from="VBoxContainer/HBoxContainer/VBoxContainer/AnotherHand" to="." method="_on_button_focus"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/VBoxContainer/AnotherHand" to="." method="_on_button_focus"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/AnotherHand" to="." method="_press_another_hand"]
+[connection signal="focus_entered" from="VBoxContainer/HBoxContainer/VBoxContainer/ValidateHand" to="." method="_on_button_focus"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/VBoxContainer/ValidateHand" to="." method="_on_button_focus"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/ValidateHand" to="." method="_press_validate_hand"]

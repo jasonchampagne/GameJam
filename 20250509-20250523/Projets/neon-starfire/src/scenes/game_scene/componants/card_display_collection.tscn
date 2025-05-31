@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://biexnv3rn7e8u"]
+
+[ext_resource type="FontFile" uid="uid://cnk30d62whfwu" path="res://assets/fonts/AtariClassic-gry3.ttf" id="2_fk4vd"]
+[ext_resource type="Texture2D" uid="uid://beh67hxakdpuq" path="res://assets/cards/neon/card_dice.png" id="2_spwkh"]
+
+[sub_resource type="GDScript" id="GDScript_oqwr6"]
+script/source = "class_name CardDisplayCollection extends CardDisplayText
+@onready var card_face: TextureRect = %TextureRect
+
+var current_card_data: LinesCardUIData
+
+func _init() -> void:
+	current_card_data = LinesCardUIData.new()
+	current_card_data.nice_name = \"UnknownCard\"
+	current_card_data.description = current_card_data.nice_name + \"_desc\"
+	current_card_data.texture_path = Globals.DEFAULT_BACK_CARD_PATH
+	
+
+func set_card(card_data: LinesCardUIData) -> void:
+	self.current_card_data = card_data
+
+func _ready() ->  void:
+	super.card_to_display(current_card_data)
+	var frontface_texture: Texture = load(current_card_data.texture_path) as Texture
+	card_face.texture = frontface_texture
+
+func card_to_display(card_data: LinesCardUIData) -> void:
+	super(card_data)
+	var frontface_texture: Texture = load(card_data.texture_path) as Texture
+	card_face.texture = frontface_texture
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_807ag"]
+font = ExtResource("2_fk4vd")
+font_size = 20
+font_color = Color(1, 0.180392, 0.92549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_10oyc"]
+font = ExtResource("2_fk4vd")
+font_color = Color(0.631373, 0, 1, 1)
+
+[node name="CardDisplayCollection" type="Node2D"]
+script = SubResource("GDScript_oqwr6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(168, 240)
+layout_mode = 2
+texture = ExtResource("2_spwkh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CardDescTitle" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(168, 16)
+layout_mode = 2
+text = "UnknownCard"
+label_settings = SubResource("LabelSettings_807ag")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="CardDescContent" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(168, 180)
+layout_mode = 2
+text = "UnknownCard_desc"
+label_settings = SubResource("LabelSettings_10oyc")
+autowrap_mode = 2

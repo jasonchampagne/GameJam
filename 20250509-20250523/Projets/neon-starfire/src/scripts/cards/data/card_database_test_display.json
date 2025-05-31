@@ -1,0 +1,103 @@
+[
+	{
+		"nice_name": "Slice",
+		"texture_path": "res://assets/cards/simple/card_attack.png",
+		"backface_texture_path": "res://assets/cards/neon/card_dice.png",
+		"resource_script_path": "res://scripts/cards/script_cards/basic_move.gd",
+		"type": "Attack",
+		"power": 1,
+		"cost": 1,
+		"description": "Deal {value} damage"
+	},
+	{
+		"nice_name": "Dice",
+		"texture_path": "res://assets/cards/simple/card_clubs_02.png",
+		"backface_texture_path": "res://assets/cards/neon/card_dice.png",
+		"resource_script_path": "res://scripts/cards/script_cards/double_move.gd",
+		"type": "Attack",
+		"power": 3,
+		"cost": 2,
+		"description": "Deal {value} damage"
+	},
+	{
+		"nice_name": "Gatling Maze",
+		"texture_path": "res://assets/cards/simple/card_clubs_02.png",
+		"backface_texture_path": "res://assets/cards/neon/card_dice.png",
+		"resource_script_path": "res://scripts/cards/script_cards/gatling_maze.gd",
+		"type": "Attack",
+		"power": 3,
+		"cost": 2,
+		"sound": "gatling.wav",
+		"description": "Deal {value} damage"
+	},
+	{
+		"nice_name": "Turn Maze",
+		"texture_path": "res://assets/cards/simple/card_clubs_04.png",
+		"backface_texture_path": "res://assets/cards/neon/card_dice.png",
+		"resource_script_path": "res://scripts/cards/script_cards/turn_maze.gd",
+		"type": "Attack",
+		"power": 3,
+		"cost": 2,
+		"description": "Deal {value} damage"
+	},
+	{
+		"nice_name": "Explose Maze",
+		"texture_path": "res://assets/cards/simple/card_clubs_05.png",
+		"backface_texture_path": "res://assets/cards/neon/card_dice.png",
+		"resource_script_path": "res://scripts/cards/script_cards/explose_maze.gd",
+		"type": "Attack",
+		"power": 3,
+		"cost": 2,
+		"description": "Deal {value} damage"
+	},
+	{
+		"nice_name": "Enchant Maze",
+		"texture_path": "res://assets/cards/simple/card_clubs_06.png",
+		"backface_texture_path": "res://assets/cards/neon/card_dice.png",
+		"resource_script_path": "res://scripts/cards/script_cards/enchant_maze.gd",
+		"type": "Attack",
+		"power": 3,
+		"cost": 2,
+		"description": "Deal {value} damage"
+	},
+	{
+		"nice_name": "Ampli x2",
+		"texture_path": "res://assets/cards/simple/card_clubs_07.png",
+		"backface_texture_path": "res://assets/cards/neon/card_dice.png",
+		"resource_script_path": "res://scripts/cards/script_cards/ampli_x2.gd",
+		"type": "Attack",
+		"power": 3,
+		"cost": 2,
+		"description": "Deal {value} damage"
+	},
+	{
+		"nice_name": "Score x2",
+		"texture_path": "res://assets/cards/simple/card_clubs_08.png",
+		"backface_texture_path": "res://assets/cards/neon/card_dice.png",
+		"resource_script_path": "res://scripts/cards/script_cards/score_x2.gd",
+		"type": "Attack",
+		"power": 3,
+		"cost": 2,
+		"description": "Deal {value} damage"
+	},
+	{
+		"nice_name": "Catch point around",
+		"texture_path": "res://assets/cards/simple/card_clubs_09.png",
+		"backface_texture_path": "res://assets/cards/neon/card_dice.png",
+		"resource_script_path": "res://scripts/cards/script_cards/score_catch_around.gd",
+		"type": "Attack",
+		"power": 3,
+		"cost": 2,
+		"description": "Deal {value} damage"
+	},
+	{
+		"nice_name": "Player x2",
+		"texture_path": "res://assets/cards/simple/card_clubs_10.png",
+		"backface_texture_path": "res://assets/cards/neon/card_dice.png",
+		"resource_script_path": "res://scripts/cards/script_cards/player_x2.gd",
+		"type": "Attack",
+		"power": 3,
+		"cost": 2,
+		"description": "Deal {value} damage"
+	}
+]
