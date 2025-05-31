@@ -47,10 +47,13 @@ Lorsque vous n'avez plus de slots dispo, vous devez libérer des slots en valida
 
 <details>
 <summary>Afficher/masquer</summary>
-Les niveaux dans cette version s'enchainent de cette manière
-    - labyrinthe
-    - boutique
-    - labyrinthe
-    - boutique
-    - boss
+<p>Les niveaux dans cette version s'enchainent de cette manière :</p>
+
+<ul>
+    <li>labyrinthe</li>
+    <li>boutique</li>
+    <li>labyrinthe</li>
+    <li>boutique</li>
+    <li>boss</li>
+</ul>
 </details>
